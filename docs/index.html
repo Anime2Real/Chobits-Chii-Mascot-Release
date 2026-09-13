@@ -120,54 +120,14 @@
 
   .hero-photo-wrap {
     position: relative;
-    width: min(580px, 100%);
-    margin: 0 auto;
+    margin: -40px -28px 0;
   }
   .hero-photo {
     display: block;
     width: 100%;
     height: auto;
-    border: 8px solid #fbf1e2;
-    outline: 2px solid #d9b98f;
-    border-radius: 18px;
-    box-shadow: 0 12px 30px rgba(160, 100, 60, .22);
-  }
-
-  /* 圆形徽章（致敬 TBS 官网的粉色圆标） */
-  .logo-badge {
-    position: absolute;
-    top: -22px; right: -18px;
-    width: 108px; height: 108px;
-    border-radius: 50%;
-    background: radial-gradient(circle at 35% 30%, #f2a7b8 0%, var(--rose-500) 62%, var(--rose-700) 100%);
-    border: 3px solid #fff;
-    box-shadow: 0 0 0 2px var(--rose-500), 0 8px 18px rgba(180, 95, 120, .35);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    color: #fff;
-    transform: rotate(6deg);
-    z-index: 3;
-  }
-  .logo-badge .en {
-    font-family: var(--serif);
-    font-size: 19px;
-    font-weight: 700;
-    letter-spacing: 1.5px;
-    text-shadow: 0 1px 2px rgba(150, 60, 85, .5);
-  }
-  .logo-badge .cn {
-    margin-top: 2px;
-    font-size: 11px;
-    letter-spacing: 4px;
-    opacity: .95;
-  }
-  .logo-badge .ring {
-    position: absolute;
-    inset: 7px;
-    border: 1px dashed rgba(255, 255, 255, .65);
-    border-radius: 50%;
+    -webkit-mask-image: radial-gradient(ellipse 92% 90% at 50% 42%, #000 58%, transparent 98%);
+    mask-image: radial-gradient(ellipse 92% 90% at 50% 42%, #000 58%, transparent 98%);
   }
 
   /* 「ちぃ」名牌 */
@@ -481,9 +441,7 @@
   @media (max-width: 560px) {
     header { justify-content: center; padding: 18px 18px 0; }
     .hero { padding: 32px 18px 26px; }
-    .logo-badge { width: 84px; height: 84px; top: -14px; right: -8px; }
-    .logo-badge .en { font-size: 14px; }
-    .logo-badge .cn { font-size: 9px; letter-spacing: 3px; }
+    .hero-photo-wrap { margin: -32px -18px 0; }
     .downloads, .notes, .tips { padding-left: 18px; padding-right: 18px; }
     .cards { grid-template-columns: 1fr; }
   }
@@ -509,11 +467,6 @@
   <section class="hero">
     <div class="hero-photo-wrap">
       <img class="hero-photo" src="hero.jpg" alt="Chobits 全员合照" width="1600" height="900">
-      <div class="logo-badge" aria-hidden="true">
-        <span class="ring"></span>
-        <span class="en">Chobits</span>
-        <span class="cn">桌宠</span>
-      </div>
     </div>
     <div class="chii-tag"><span class="jp">ちぃ</span><span class="note">CHII</span></div>
 
