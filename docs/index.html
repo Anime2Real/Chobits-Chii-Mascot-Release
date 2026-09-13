@@ -110,7 +110,7 @@
     color: var(--paper);
   }
 
-  /* ---------- 头图：拱形窗 + ちぃ ---------- */
+  /* ---------- 头图：全员合照 ---------- */
   .hero {
     position: relative;
     padding: 40px 28px 30px;
@@ -118,85 +118,25 @@
     background: linear-gradient(180deg, var(--paper) 0%, var(--ivory) 100%);
   }
 
-  .window-wrap { position: relative; width: 320px; margin: 0 auto; }
-
-  /* 拱形窗（致敬 Chobits 视觉图中标志性的拱窗与蓝天） */
-  .window {
+  .hero-photo-wrap {
     position: relative;
-    width: 300px;
-    height: 240px;
+    width: min(580px, 100%);
     margin: 0 auto;
-    border: 9px solid #fbf1e2;
+  }
+  .hero-photo {
+    display: block;
+    width: 100%;
+    height: auto;
+    border: 8px solid #fbf1e2;
     outline: 2px solid #d9b98f;
-    border-radius: 150px 150px 14px 14px;
-    background: linear-gradient(180deg, #bfe0ef 0%, #d8ecf5 55%, #eef7fa 100%);
-    box-shadow: inset 0 8px 24px rgba(77, 135, 163, .18), 0 10px 26px rgba(160, 100, 60, .18);
-    overflow: hidden;
-  }
-  /* 窗棂 */
-  .window::before {
-    content: "";
-    position: absolute;
-    left: 50%; top: 0; bottom: 0;
-    width: 8px;
-    transform: translateX(-50%);
-    background: #fbf1e2;
-    box-shadow: 0 0 0 1px rgba(217, 185, 143, .5);
-  }
-  .window::after {
-    content: "";
-    position: absolute;
-    left: 0; right: 0; top: 46%;
-    height: 8px;
-    background: #fbf1e2;
-    box-shadow: 0 0 0 1px rgba(217, 185, 143, .5);
-  }
-  .sun {
-    position: absolute;
-    left: 34px; top: 30px;
-    width: 34px; height: 34px;
-    background: radial-gradient(circle, #fff8e0 0%, #ffe9ad 55%, rgba(255, 233, 173, 0) 75%);
-    border-radius: 50%;
-  }
-  .cloud {
-    position: absolute;
-    background: rgba(255, 255, 255, .92);
-    border-radius: 999px;
-    animation: drift linear infinite;
-  }
-  .cloud::before, .cloud::after {
-    content: "";
-    position: absolute;
-    background: inherit;
-    border-radius: 50%;
-  }
-  .cloud.c1 { left: 20px; top: 74px; width: 66px; height: 18px; animation-duration: 26s; }
-  .cloud.c1::before { left: 10px; top: -10px; width: 26px; height: 26px; }
-  .cloud.c1::after { left: 32px; top: -7px; width: 20px; height: 20px; }
-  .cloud.c2 { left: 180px; top: 52px; width: 52px; height: 14px; animation-duration: 34s; animation-delay: -12s; opacity: .8; }
-  .cloud.c2::before { left: 8px; top: -8px; width: 20px; height: 20px; }
-  .cloud.c2::after { left: 26px; top: -5px; width: 15px; height: 15px; }
-  @keyframes drift {
-    0%   { transform: translateX(-14px); }
-    50%  { transform: translateX(20px); }
-    100% { transform: translateX(-14px); }
-  }
-  /* 窗台 */
-  .window-sill {
-    width: 340px;
-    height: 14px;
-    margin: -2px auto 0;
-    background: linear-gradient(180deg, #fbf1e2, #ecd7b8);
-    border: 2px solid #d9b98f;
-    border-top: none;
-    border-radius: 0 0 10px 10px;
-    box-shadow: 0 6px 12px rgba(160, 100, 60, .18);
+    border-radius: 18px;
+    box-shadow: 0 12px 30px rgba(160, 100, 60, .22);
   }
 
   /* 圆形徽章（致敬 TBS 官网的粉色圆标） */
   .logo-badge {
     position: absolute;
-    top: -18px; right: -16px;
+    top: -22px; right: -18px;
     width: 108px; height: 108px;
     border-radius: 50%;
     background: radial-gradient(circle at 35% 30%, #f2a7b8 0%, var(--rose-500) 62%, var(--rose-700) 100%);
@@ -228,151 +168,6 @@
     inset: 7px;
     border: 1px dashed rgba(255, 255, 255, .65);
     border-radius: 50%;
-  }
-
-  /* ちぃ（纯 CSS 原创绘制） */
-  .chii {
-    position: relative;
-    width: 176px; height: 190px;
-    margin: -96px auto 0;
-    z-index: 2;
-  }
-  .chii .hair-back {
-    position: absolute;
-    left: 50%; top: 6px;
-    width: 152px; height: 176px;
-    transform: translateX(-50%);
-    background: linear-gradient(180deg, #f5e3b0 0%, #eed49b 55%, #e3c084 100%);
-    border-radius: 47% 47% 44% 44% / 34% 34% 66% 66%;
-    box-shadow: inset 0 -20px 26px rgba(176, 138, 74, .22);
-  }
-  .chii .hair-back::before, .chii .hair-back::after {
-    content: "";
-    position: absolute;
-    top: 58px;
-    width: 26px; height: 116px;
-    background: linear-gradient(180deg, #f0d9a4, #dfc084);
-    border-radius: 46% 46% 52% 52% / 28% 28% 64% 64%;
-  }
-  .chii .hair-back::before { left: -6px; transform: rotate(5deg); }
-  .chii .hair-back::after { right: -6px; transform: rotate(-5deg); }
-  .chii .face {
-    position: absolute;
-    left: 50%; top: 38px;
-    width: 106px; height: 98px;
-    transform: translateX(-50%);
-    background: #fdf0e4;
-    border-radius: 48% 48% 52% 52% / 46% 46% 56% 56%;
-    box-shadow: inset 0 -5px 0 rgba(233, 196, 164, .4);
-  }
-  .chii .bangs {
-    position: absolute;
-    left: 50%; top: 26px;
-    width: 114px; height: 40px;
-    transform: translateX(-50%);
-    background: linear-gradient(180deg, #f7e7b6, #f1da9f);
-    border-radius: 50% 50% 44% 44% / 96% 96% 18% 18%;
-  }
-  .chii .bangs::before, .chii .bangs::after {
-    content: "";
-    position: absolute;
-    top: 28px;
-    width: 17px; height: 30px;
-    background: #f1da9f;
-    border-radius: 0 0 50% 50%;
-  }
-  .chii .bangs::before { left: 20px; transform: rotate(13deg); }
-  .chii .bangs::after { right: 20px; transform: rotate(-13deg); }
-  .chii .ear {
-    position: absolute;
-    top: 56px;
-    width: 22px; height: 58px;
-    background: linear-gradient(180deg, #6b584e 0%, #52423b 100%);
-    border-radius: 12px 12px 16px 16px;
-    box-shadow: inset 0 -7px 0 rgba(0, 0, 0, .16), 0 2px 5px rgba(79, 66, 56, .18);
-  }
-  .chii .ear::before {
-    content: "";
-    position: absolute;
-    left: 50%; top: -7px;
-    width: 13px; height: 13px;
-    transform: translateX(-50%);
-    background: #d9c4a8;
-    border-radius: 50%;
-    box-shadow: inset 0 -2px 0 rgba(0, 0, 0, .12);
-  }
-  .chii .ear::after {
-    content: "";
-    position: absolute;
-    left: 0; right: 0; top: 12px;
-    height: 3px;
-    background: rgba(255, 253, 248, .35);
-  }
-  .chii .ear.left  { left: 12px; }
-  .chii .ear.right { right: 12px; }
-  .chii .eye {
-    position: absolute;
-    top: 68px;
-    width: 12px; height: 19px;
-    background: #584338;
-    border-radius: 50%;
-    box-shadow: inset 2.5px 3.5px 0 rgba(255, 255, 255, .9);
-    animation: blink 4.6s infinite;
-  }
-  .chii .eye.left  { left: 50%; margin-left: -26px; }
-  .chii .eye.right { left: 50%; margin-left: 14px; }
-  @keyframes blink {
-    0%, 93%, 100% { transform: scaleY(1); }
-    96% { transform: scaleY(.1); }
-  }
-  .chii .blush {
-    position: absolute;
-    top: 94px;
-    width: 17px; height: 9px;
-    background: rgba(212, 132, 154, .38);
-    border-radius: 50%;
-    filter: blur(1.5px);
-  }
-  .chii .blush.left  { left: 50%; margin-left: -36px; }
-  .chii .blush.right { left: 50%; margin-left: 19px; }
-  .chii .mouth {
-    position: absolute;
-    left: 50%; top: 97px;
-    width: 13px; height: 8px;
-    transform: translateX(-50%);
-    border: 2.5px solid #a4756a;
-    border-top: none;
-    border-radius: 0 0 13px 13px;
-  }
-  .chii .bow {
-    position: absolute;
-    left: 50%; bottom: 4px;
-    width: 34px; height: 20px;
-    transform: translateX(-50%);
-  }
-  .chii .bow::before, .chii .bow::after {
-    content: "";
-    position: absolute;
-    top: 3px;
-    width: 15px; height: 14px;
-    background: linear-gradient(135deg, var(--rose-300), var(--rose-500));
-    border-radius: 80% 20% 60% 40% / 60% 40% 60% 40%;
-  }
-  .chii .bow::before { left: 0; transform: rotate(-24deg); }
-  .chii .bow::after { right: 0; transform: rotate(24deg) scaleX(-1); }
-  .chii .bow i {
-    position: absolute;
-    left: 50%; top: 50%;
-    width: 8px; height: 8px;
-    transform: translate(-50%, -50%);
-    background: var(--rose-700);
-    border-radius: 50%;
-    z-index: 1;
-  }
-  .chii { animation: floaty 4s ease-in-out infinite; }
-  @keyframes floaty {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-7px); }
   }
 
   /* 「ちぃ」名牌 */
@@ -686,13 +481,9 @@
   @media (max-width: 560px) {
     header { justify-content: center; padding: 18px 18px 0; }
     .hero { padding: 32px 18px 26px; }
-    .window-wrap { width: 260px; }
-    .window { width: 244px; height: 200px; border-radius: 122px 122px 12px 12px; }
-    .window-sill { width: 276px; }
-    .logo-badge { width: 88px; height: 88px; top: -14px; right: -8px; }
-    .logo-badge .en { font-size: 15px; }
+    .logo-badge { width: 84px; height: 84px; top: -14px; right: -8px; }
+    .logo-badge .en { font-size: 14px; }
     .logo-badge .cn { font-size: 9px; letter-spacing: 3px; }
-    .chii { margin-top: -80px; transform-origin: top center; }
     .downloads, .notes, .tips { padding-left: 18px; padding-right: 18px; }
     .cards { grid-template-columns: 1fr; }
   }
@@ -716,30 +507,12 @@
   </header>
 
   <section class="hero">
-    <div class="window-wrap">
-      <div class="window" aria-hidden="true">
-        <div class="sun"></div>
-        <div class="cloud c1"></div>
-        <div class="cloud c2"></div>
-      </div>
-      <div class="window-sill" aria-hidden="true"></div>
+    <div class="hero-photo-wrap">
+      <img class="hero-photo" src="hero.jpg" alt="Chobits 全员合照" width="1600" height="900">
       <div class="logo-badge" aria-hidden="true">
         <span class="ring"></span>
         <span class="en">Chobits</span>
         <span class="cn">桌宠</span>
-      </div>
-      <div class="chii" aria-hidden="true">
-        <div class="hair-back"></div>
-        <div class="face"></div>
-        <div class="bangs"></div>
-        <div class="ear left"></div>
-        <div class="ear right"></div>
-        <div class="eye left"></div>
-        <div class="eye right"></div>
-        <div class="blush left"></div>
-        <div class="blush right"></div>
-        <div class="mouth"></div>
-        <div class="bow"><i></i></div>
       </div>
     </div>
     <div class="chii-tag"><span class="jp">ちぃ</span><span class="note">CHII</span></div>
