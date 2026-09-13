@@ -4,7 +4,11 @@ Chobits 桌宠的公开发布渠道。本仓库只承载 Release 产物（安装
 
 ## 下载
 
-前往 [Releases](https://github.com/Anime2Real/Chobits-Chii-Mascot-Release/releases) 页面下载最新版本：
+前往发布主页下载最新版本（推荐）：
+
+**https://anime2real.github.io/Chobits-Chii-Mascot-Release/**
+
+页面会自动识别你的平台并推荐对应的安装包，也可以直接访问 [Releases](https://github.com/Anime2Real/Chobits-Chii-Mascot-Release/releases) 页面下载：
 
 | 平台 | 文件 |
 |---|---|

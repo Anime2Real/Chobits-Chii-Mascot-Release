@@ -1,0 +1,965 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chobits 桌宠 · 把ちぃ带回家</title>
+<meta name="description" content="Chobits ちぃ 桌面宠物 — 最新版本下载。macOS / Windows / Linux">
+<style>
+  :root {
+    --peach: #f3c9a1;
+    --peach-deep: #ecb887;
+    --paper: #fffdf8;
+    --ivory: #fdf6ec;
+    --rose-100: #f9e8ec;
+    --rose-300: #e5b3c0;
+    --rose-500: #d4849a;
+    --rose-700: #b45f78;
+    --sky-300: #a9d3e4;
+    --sky-500: #6fa9c4;
+    --sky-700: #4d87a3;
+    --gold: #b8913f;
+    --ink: #4f4238;
+    --ink-soft: #94816f;
+    --hairline: #eddcc8;
+    --shadow: 0 6px 24px rgba(180, 95, 120, .10);
+    --shadow-hover: 0 14px 34px rgba(180, 95, 120, .18);
+    --serif: "Noto Serif SC", "Songti SC", "STSong", "SimSun", serif;
+    --sans: -apple-system, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; overflow-x: hidden; }
+
+  body {
+    font-family: var(--sans);
+    color: var(--ink);
+    background:
+      radial-gradient(ellipse 70% 40% at 50% -10%, rgba(255, 255, 255, .35) 0%, transparent 70%),
+      linear-gradient(180deg, var(--peach) 0%, var(--peach-deep) 100%);
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  /* ---------- 樱花（落在桃色天幕上） ---------- */
+  #petals { position: fixed; inset: 0; pointer-events: none; z-index: 0; overflow: hidden; }
+  .petal {
+    position: absolute;
+    top: -4vh;
+    border-radius: 62% 38% 62% 38% / 60% 40% 60% 40%;
+    background: linear-gradient(135deg, #fdeef2, #f3c6d2);
+    opacity: .7;
+    animation: fall linear infinite;
+  }
+  @keyframes fall {
+    0%   { transform: translate3d(0, -5vh, 0) rotate(0deg); }
+    25%  { transform: translate3d(2.5vw, 27vh, 0) rotate(90deg); }
+    50%  { transform: translate3d(-1.8vw, 55vh, 0) rotate(185deg); }
+    75%  { transform: translate3d(2vw, 80vh, 0) rotate(280deg); }
+    100% { transform: translate3d(-1vw, 108vh, 0) rotate(365deg); }
+  }
+
+  /* ---------- 中央纸页（致敬 TBS 官网的居中白栏） ---------- */
+  .page {
+    position: relative;
+    z-index: 1;
+    max-width: 760px;
+    margin: 0 auto;
+    background: var(--paper);
+    box-shadow: 0 0 60px rgba(160, 100, 60, .25);
+    min-height: 100vh;
+    overflow: hidden;
+  }
+
+  /* ---------- 顶栏 ---------- */
+  header {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    align-items: center;
+    justify-content: space-between;
+    padding: 22px 28px 0;
+  }
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-family: var(--serif);
+    font-size: 18px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    color: var(--rose-700);
+  }
+  .gh-link {
+    font-size: 13px;
+    text-decoration: none;
+    color: var(--rose-700);
+    border: 1px solid var(--rose-300);
+    background: rgba(255, 253, 248, .8);
+    padding: 7px 16px;
+    border-radius: 999px;
+    letter-spacing: 1px;
+    transition: all .25s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+  }
+  .gh-link:hover {
+    background: var(--rose-700);
+    border-color: var(--rose-700);
+    color: var(--paper);
+  }
+
+  /* ---------- 头图：拱形窗 + ちぃ ---------- */
+  .hero {
+    position: relative;
+    padding: 40px 28px 30px;
+    text-align: center;
+    background: linear-gradient(180deg, var(--paper) 0%, var(--ivory) 100%);
+  }
+
+  .window-wrap { position: relative; width: 320px; margin: 0 auto; }
+
+  /* 拱形窗（致敬 Chobits 视觉图中标志性的拱窗与蓝天） */
+  .window {
+    position: relative;
+    width: 300px;
+    height: 240px;
+    margin: 0 auto;
+    border: 9px solid #fbf1e2;
+    outline: 2px solid #d9b98f;
+    border-radius: 150px 150px 14px 14px;
+    background: linear-gradient(180deg, #bfe0ef 0%, #d8ecf5 55%, #eef7fa 100%);
+    box-shadow: inset 0 8px 24px rgba(77, 135, 163, .18), 0 10px 26px rgba(160, 100, 60, .18);
+    overflow: hidden;
+  }
+  /* 窗棂 */
+  .window::before {
+    content: "";
+    position: absolute;
+    left: 50%; top: 0; bottom: 0;
+    width: 8px;
+    transform: translateX(-50%);
+    background: #fbf1e2;
+    box-shadow: 0 0 0 1px rgba(217, 185, 143, .5);
+  }
+  .window::after {
+    content: "";
+    position: absolute;
+    left: 0; right: 0; top: 46%;
+    height: 8px;
+    background: #fbf1e2;
+    box-shadow: 0 0 0 1px rgba(217, 185, 143, .5);
+  }
+  .sun {
+    position: absolute;
+    left: 34px; top: 30px;
+    width: 34px; height: 34px;
+    background: radial-gradient(circle, #fff8e0 0%, #ffe9ad 55%, rgba(255, 233, 173, 0) 75%);
+    border-radius: 50%;
+  }
+  .cloud {
+    position: absolute;
+    background: rgba(255, 255, 255, .92);
+    border-radius: 999px;
+    animation: drift linear infinite;
+  }
+  .cloud::before, .cloud::after {
+    content: "";
+    position: absolute;
+    background: inherit;
+    border-radius: 50%;
+  }
+  .cloud.c1 { left: 20px; top: 74px; width: 66px; height: 18px; animation-duration: 26s; }
+  .cloud.c1::before { left: 10px; top: -10px; width: 26px; height: 26px; }
+  .cloud.c1::after { left: 32px; top: -7px; width: 20px; height: 20px; }
+  .cloud.c2 { left: 180px; top: 52px; width: 52px; height: 14px; animation-duration: 34s; animation-delay: -12s; opacity: .8; }
+  .cloud.c2::before { left: 8px; top: -8px; width: 20px; height: 20px; }
+  .cloud.c2::after { left: 26px; top: -5px; width: 15px; height: 15px; }
+  @keyframes drift {
+    0%   { transform: translateX(-14px); }
+    50%  { transform: translateX(20px); }
+    100% { transform: translateX(-14px); }
+  }
+  /* 窗台 */
+  .window-sill {
+    width: 340px;
+    height: 14px;
+    margin: -2px auto 0;
+    background: linear-gradient(180deg, #fbf1e2, #ecd7b8);
+    border: 2px solid #d9b98f;
+    border-top: none;
+    border-radius: 0 0 10px 10px;
+    box-shadow: 0 6px 12px rgba(160, 100, 60, .18);
+  }
+
+  /* 圆形徽章（致敬 TBS 官网的粉色圆标） */
+  .logo-badge {
+    position: absolute;
+    top: -18px; right: -16px;
+    width: 108px; height: 108px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 35% 30%, #f2a7b8 0%, var(--rose-500) 62%, var(--rose-700) 100%);
+    border: 3px solid #fff;
+    box-shadow: 0 0 0 2px var(--rose-500), 0 8px 18px rgba(180, 95, 120, .35);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    transform: rotate(6deg);
+    z-index: 3;
+  }
+  .logo-badge .en {
+    font-family: var(--serif);
+    font-size: 19px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-shadow: 0 1px 2px rgba(150, 60, 85, .5);
+  }
+  .logo-badge .cn {
+    margin-top: 2px;
+    font-size: 11px;
+    letter-spacing: 4px;
+    opacity: .95;
+  }
+  .logo-badge .ring {
+    position: absolute;
+    inset: 7px;
+    border: 1px dashed rgba(255, 255, 255, .65);
+    border-radius: 50%;
+  }
+
+  /* ちぃ（纯 CSS 原创绘制） */
+  .chii {
+    position: relative;
+    width: 176px; height: 190px;
+    margin: -96px auto 0;
+    z-index: 2;
+  }
+  .chii .hair-back {
+    position: absolute;
+    left: 50%; top: 6px;
+    width: 152px; height: 176px;
+    transform: translateX(-50%);
+    background: linear-gradient(180deg, #f5e3b0 0%, #eed49b 55%, #e3c084 100%);
+    border-radius: 47% 47% 44% 44% / 34% 34% 66% 66%;
+    box-shadow: inset 0 -20px 26px rgba(176, 138, 74, .22);
+  }
+  .chii .hair-back::before, .chii .hair-back::after {
+    content: "";
+    position: absolute;
+    top: 58px;
+    width: 26px; height: 116px;
+    background: linear-gradient(180deg, #f0d9a4, #dfc084);
+    border-radius: 46% 46% 52% 52% / 28% 28% 64% 64%;
+  }
+  .chii .hair-back::before { left: -6px; transform: rotate(5deg); }
+  .chii .hair-back::after { right: -6px; transform: rotate(-5deg); }
+  .chii .face {
+    position: absolute;
+    left: 50%; top: 38px;
+    width: 106px; height: 98px;
+    transform: translateX(-50%);
+    background: #fdf0e4;
+    border-radius: 48% 48% 52% 52% / 46% 46% 56% 56%;
+    box-shadow: inset 0 -5px 0 rgba(233, 196, 164, .4);
+  }
+  .chii .bangs {
+    position: absolute;
+    left: 50%; top: 26px;
+    width: 114px; height: 40px;
+    transform: translateX(-50%);
+    background: linear-gradient(180deg, #f7e7b6, #f1da9f);
+    border-radius: 50% 50% 44% 44% / 96% 96% 18% 18%;
+  }
+  .chii .bangs::before, .chii .bangs::after {
+    content: "";
+    position: absolute;
+    top: 28px;
+    width: 17px; height: 30px;
+    background: #f1da9f;
+    border-radius: 0 0 50% 50%;
+  }
+  .chii .bangs::before { left: 20px; transform: rotate(13deg); }
+  .chii .bangs::after { right: 20px; transform: rotate(-13deg); }
+  .chii .ear {
+    position: absolute;
+    top: 56px;
+    width: 22px; height: 58px;
+    background: linear-gradient(180deg, #6b584e 0%, #52423b 100%);
+    border-radius: 12px 12px 16px 16px;
+    box-shadow: inset 0 -7px 0 rgba(0, 0, 0, .16), 0 2px 5px rgba(79, 66, 56, .18);
+  }
+  .chii .ear::before {
+    content: "";
+    position: absolute;
+    left: 50%; top: -7px;
+    width: 13px; height: 13px;
+    transform: translateX(-50%);
+    background: #d9c4a8;
+    border-radius: 50%;
+    box-shadow: inset 0 -2px 0 rgba(0, 0, 0, .12);
+  }
+  .chii .ear::after {
+    content: "";
+    position: absolute;
+    left: 0; right: 0; top: 12px;
+    height: 3px;
+    background: rgba(255, 253, 248, .35);
+  }
+  .chii .ear.left  { left: 12px; }
+  .chii .ear.right { right: 12px; }
+  .chii .eye {
+    position: absolute;
+    top: 68px;
+    width: 12px; height: 19px;
+    background: #584338;
+    border-radius: 50%;
+    box-shadow: inset 2.5px 3.5px 0 rgba(255, 255, 255, .9);
+    animation: blink 4.6s infinite;
+  }
+  .chii .eye.left  { left: 50%; margin-left: -26px; }
+  .chii .eye.right { left: 50%; margin-left: 14px; }
+  @keyframes blink {
+    0%, 93%, 100% { transform: scaleY(1); }
+    96% { transform: scaleY(.1); }
+  }
+  .chii .blush {
+    position: absolute;
+    top: 94px;
+    width: 17px; height: 9px;
+    background: rgba(212, 132, 154, .38);
+    border-radius: 50%;
+    filter: blur(1.5px);
+  }
+  .chii .blush.left  { left: 50%; margin-left: -36px; }
+  .chii .blush.right { left: 50%; margin-left: 19px; }
+  .chii .mouth {
+    position: absolute;
+    left: 50%; top: 97px;
+    width: 13px; height: 8px;
+    transform: translateX(-50%);
+    border: 2.5px solid #a4756a;
+    border-top: none;
+    border-radius: 0 0 13px 13px;
+  }
+  .chii .bow {
+    position: absolute;
+    left: 50%; bottom: 4px;
+    width: 34px; height: 20px;
+    transform: translateX(-50%);
+  }
+  .chii .bow::before, .chii .bow::after {
+    content: "";
+    position: absolute;
+    top: 3px;
+    width: 15px; height: 14px;
+    background: linear-gradient(135deg, var(--rose-300), var(--rose-500));
+    border-radius: 80% 20% 60% 40% / 60% 40% 60% 40%;
+  }
+  .chii .bow::before { left: 0; transform: rotate(-24deg); }
+  .chii .bow::after { right: 0; transform: rotate(24deg) scaleX(-1); }
+  .chii .bow i {
+    position: absolute;
+    left: 50%; top: 50%;
+    width: 8px; height: 8px;
+    transform: translate(-50%, -50%);
+    background: var(--rose-700);
+    border-radius: 50%;
+    z-index: 1;
+  }
+  .chii { animation: floaty 4s ease-in-out infinite; }
+  @keyframes floaty {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-7px); }
+  }
+
+  /* 「ちぃ」名牌 */
+  .chii-tag {
+    display: inline-flex;
+    align-items: baseline;
+    gap: 8px;
+    margin-top: 10px;
+    padding: 6px 20px;
+    background: rgba(255, 253, 248, .9);
+    border: 1px solid var(--rose-300);
+    border-radius: 999px;
+    font-family: var(--serif);
+    color: var(--rose-700);
+    box-shadow: var(--shadow);
+  }
+  .chii-tag .jp { font-size: 19px; letter-spacing: 2px; }
+  .chii-tag .note { font-size: 11px; color: var(--ink-soft); letter-spacing: 2px; }
+
+  .hero .kicker {
+    margin-top: 28px;
+    font-size: 11px;
+    letter-spacing: 5px;
+    color: var(--gold);
+    text-transform: uppercase;
+  }
+  .hero h1 {
+    margin-top: 12px;
+    font-family: var(--serif);
+    font-size: clamp(28px, 5vw, 40px);
+    font-weight: 600;
+    letter-spacing: 4px;
+    color: var(--ink);
+  }
+  .hero h1 .accent { color: var(--rose-700); }
+  .hero .subtitle {
+    margin-top: 14px;
+    font-size: 14px;
+    letter-spacing: 2px;
+    color: var(--ink-soft);
+  }
+  .divider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    margin: 24px auto 0;
+    width: 220px;
+    color: var(--rose-300);
+  }
+  .divider::before, .divider::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--rose-300));
+  }
+  .divider::after { background: linear-gradient(90deg, var(--rose-300), transparent); }
+  .divider span { font-size: 12px; transform: translateY(-1px); }
+
+  .version-pill {
+    display: block;
+    width: fit-content;
+    max-width: 100%;
+    margin: 24px auto 0;
+    padding: 9px 22px;
+    text-align: center;
+    background: rgba(255, 253, 248, .85);
+    border: 1px solid var(--hairline);
+    border-radius: 999px;
+    font-size: 13px;
+    letter-spacing: 1px;
+    color: var(--ink-soft);
+  }
+  .version-pill b { color: var(--rose-700); font-family: var(--serif); font-size: 15px; }
+  .version-pill .dot {
+    display: inline-block;
+    vertical-align: 1px;
+    margin-right: 4px;
+    width: 6px; height: 6px;
+    background: #8fbf8f;
+    border-radius: 50%;
+    box-shadow: 0 0 0 3px rgba(143, 191, 143, .22);
+  }
+
+  /* ---------- 下载卡片 ---------- */
+  .downloads { padding: 40px 28px 10px; }
+  .section-head { text-align: center; margin-bottom: 32px; }
+  .section-head .kicker {
+    font-size: 11px;
+    letter-spacing: 5px;
+    color: var(--gold);
+    text-transform: uppercase;
+  }
+  .section-head h2 {
+    margin-top: 8px;
+    font-family: var(--serif);
+    font-size: 24px;
+    font-weight: 600;
+    letter-spacing: 4px;
+    color: var(--ink);
+  }
+
+  .cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+  }
+  .card {
+    background: #fff;
+    border: 1px solid var(--hairline);
+    border-radius: 18px;
+    padding: 32px 20px 22px;
+    text-align: center;
+    box-shadow: var(--shadow);
+    transition: transform .3s ease, box-shadow .3s ease, border-color .3s ease;
+    position: relative;
+  }
+  .card:hover {
+    transform: translateY(-5px);
+    border-color: var(--rose-300);
+    box-shadow: var(--shadow-hover);
+  }
+  .card.recommended { border-color: var(--rose-500); }
+  .card.recommended::after {
+    content: "为 你 推 荐";
+    position: absolute;
+    top: -11px; left: 50%;
+    transform: translateX(-50%);
+    background: var(--rose-700);
+    color: var(--paper);
+    font-size: 11px;
+    letter-spacing: 2px;
+    padding: 4px 14px;
+    border-radius: 999px;
+    white-space: nowrap;
+  }
+  .os-emblem {
+    width: 50px; height: 50px;
+    margin: 0 auto 14px;
+    border: 1px solid var(--sky-500);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--serif);
+    font-size: 19px;
+    color: var(--sky-700);
+    background: linear-gradient(180deg, #fff, #e8f3f8);
+  }
+  .card h3 {
+    font-family: var(--serif);
+    font-size: 18px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    color: var(--ink);
+    margin-bottom: 5px;
+  }
+  .card .variant {
+    font-size: 12px;
+    letter-spacing: 1px;
+    color: var(--ink-soft);
+    margin-bottom: 20px;
+    min-height: 16px;
+  }
+  .card .btn {
+    display: block;
+    text-decoration: none;
+    background: var(--rose-700);
+    color: var(--paper);
+    font-size: 14px;
+    letter-spacing: 2px;
+    padding: 13px 10px;
+    border-radius: 12px;
+    transition: all .25s ease;
+    margin-bottom: 10px;
+  }
+  .card .btn:hover { background: var(--rose-500); transform: translateY(-1px); }
+  .card .btn.secondary {
+    background: transparent;
+    color: var(--rose-700);
+    border: 1px solid var(--rose-300);
+  }
+  .card .btn.secondary:hover { border-color: var(--rose-500); background: var(--rose-100); transform: none; }
+  .card .meta { font-size: 12px; color: var(--ink-soft); letter-spacing: 1px; }
+  .card .meta b { color: var(--rose-700); font-weight: 600; }
+
+  .cards-loading, .cards-error {
+    text-align: center;
+    color: var(--ink-soft);
+    font-size: 14px;
+    letter-spacing: 2px;
+    padding: 46px 20px;
+    background: #fff;
+    border: 1px dashed var(--rose-300);
+    border-radius: 18px;
+  }
+  .cards-error a { color: var(--rose-700); font-weight: 600; }
+
+  /* ---------- 更新日志 ---------- */
+  .notes { max-width: 640px; margin: 34px auto 0; padding: 0 28px; }
+  .notes details {
+    background: #fff;
+    border: 1px solid var(--hairline);
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+  }
+  .notes summary {
+    cursor: pointer;
+    list-style: none;
+    padding: 15px 22px;
+    font-family: var(--serif);
+    font-weight: 600;
+    letter-spacing: 2px;
+    color: var(--rose-700);
+    font-size: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    user-select: none;
+  }
+  .notes summary::-webkit-details-marker { display: none; }
+  .notes summary .arrow { transition: transform .25s ease; font-size: 11px; color: var(--rose-300); }
+  .notes details[open] summary { border-bottom: 1px solid var(--hairline); }
+  .notes details[open] summary .arrow { transform: rotate(180deg); }
+  .notes .notes-body {
+    padding: 16px 24px 20px;
+    font-size: 13.5px;
+    line-height: 1.9;
+    color: var(--ink);
+    white-space: pre-wrap;
+    word-break: break-word;
+  }
+
+  /* ---------- 安装提示 ---------- */
+  .tips { max-width: 640px; margin: 26px auto 0; padding: 0 28px; }
+  .tips .tip-box {
+    background: rgba(255, 251, 240, .9);
+    border: 1px solid #ecd9b8;
+    border-radius: 16px;
+    padding: 18px 24px;
+    font-size: 13px;
+    line-height: 2;
+    color: var(--ink);
+  }
+  .tips .tip-box h4 {
+    font-family: var(--serif);
+    color: var(--gold);
+    font-size: 14px;
+    letter-spacing: 3px;
+    margin-bottom: 6px;
+  }
+  .tips .tip-box code {
+    background: var(--rose-100);
+    color: var(--rose-700);
+    padding: 1px 8px;
+    border-radius: 6px;
+    font-size: 12px;
+  }
+
+  /* ---------- 页脚（粉色缎带，致敬 CLAMP-NET 的粉色页脚） ---------- */
+  footer {
+    margin-top: 46px;
+    padding: 30px 28px 34px;
+    text-align: center;
+    background: linear-gradient(180deg, var(--rose-500), var(--rose-700));
+    color: rgba(255, 253, 248, .92);
+    font-size: 12px;
+    letter-spacing: 1.5px;
+    line-height: 2.1;
+  }
+  footer .foot-bow { margin: 0 auto 10px; }
+  footer .heart { color: #ffe3ec; }
+  footer a {
+    color: #fff;
+    text-decoration: none;
+    border-bottom: 1px solid rgba(255, 255, 255, .5);
+  }
+  footer a:hover { border-bottom-color: #fff; }
+
+  /* 蝴蝶结 */
+  .mini-bow {
+    width: 26px; height: 17px;
+    position: relative;
+    display: inline-block;
+  }
+  .mini-bow::before, .mini-bow::after {
+    content: "";
+    position: absolute;
+    top: 2px;
+    width: 12px; height: 12px;
+    background: linear-gradient(135deg, var(--rose-300), var(--rose-500));
+    border-radius: 80% 20% 60% 40% / 60% 40% 60% 40%;
+  }
+  .mini-bow::before { left: 0; transform: rotate(-26deg); }
+  .mini-bow::after { right: 0; transform: rotate(26deg) scaleX(-1); }
+  .mini-bow i {
+    position: absolute;
+    left: 50%; top: 50%;
+    width: 7px; height: 7px;
+    transform: translate(-50%, -50%);
+    background: var(--rose-700);
+    border-radius: 50%;
+    z-index: 1;
+  }
+  .mini-bow.on-pink::before, .mini-bow.on-pink::after {
+    background: linear-gradient(135deg, #ffd9e3, #f9b9cb);
+  }
+  .mini-bow.on-pink i { background: #fff; }
+
+  @media (max-width: 560px) {
+    header { justify-content: center; padding: 18px 18px 0; }
+    .hero { padding: 32px 18px 26px; }
+    .window-wrap { width: 260px; }
+    .window { width: 244px; height: 200px; border-radius: 122px 122px 12px 12px; }
+    .window-sill { width: 276px; }
+    .logo-badge { width: 88px; height: 88px; top: -14px; right: -8px; }
+    .logo-badge .en { font-size: 15px; }
+    .logo-badge .cn { font-size: 9px; letter-spacing: 3px; }
+    .chii { margin-top: -80px; transform-origin: top center; }
+    .downloads, .notes, .tips { padding-left: 18px; padding-right: 18px; }
+    .cards { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<div id="petals" aria-hidden="true"></div>
+
+<div class="page">
+
+  <header>
+    <div class="brand">
+      <span class="mini-bow"><i></i></span>
+      Chobits 桌宠
+    </div>
+    <a class="gh-link" href="https://github.com/Anime2Real/Chobits-Chii-Mascot-Release" target="_blank" rel="noopener">
+      <svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8Z"/></svg>
+      GitHub
+    </a>
+  </header>
+
+  <section class="hero">
+    <div class="window-wrap">
+      <div class="window" aria-hidden="true">
+        <div class="sun"></div>
+        <div class="cloud c1"></div>
+        <div class="cloud c2"></div>
+      </div>
+      <div class="window-sill" aria-hidden="true"></div>
+      <div class="logo-badge" aria-hidden="true">
+        <span class="ring"></span>
+        <span class="en">Chobits</span>
+        <span class="cn">桌宠</span>
+      </div>
+      <div class="chii" aria-hidden="true">
+        <div class="hair-back"></div>
+        <div class="face"></div>
+        <div class="bangs"></div>
+        <div class="ear left"></div>
+        <div class="ear right"></div>
+        <div class="eye left"></div>
+        <div class="eye right"></div>
+        <div class="blush left"></div>
+        <div class="blush right"></div>
+        <div class="mouth"></div>
+        <div class="bow"><i></i></div>
+      </div>
+    </div>
+    <div class="chii-tag"><span class="jp">ちぃ</span><span class="note">CHII</span></div>
+
+    <p class="kicker">Chobits Desktop Mascot</p>
+    <h1>把 <span class="accent">ちぃ</span> 带回家</h1>
+    <p class="subtitle">只属于你的一台 · ちょうびっツ</p>
+
+    <div class="divider"><span>❀</span></div>
+
+    <div class="version-pill" id="version-pill" hidden>
+      <span>
+        <span class="dot"></span>
+        最新版本 <b id="version-tag">—</b>
+        · <span id="version-date">—</span>
+        · 累计下载 <b id="version-dl">—</b> 次
+      </span>
+    </div>
+  </section>
+
+  <section class="downloads" id="downloads">
+    <div class="section-head">
+      <p class="kicker">Download</p>
+      <h2>选择你的平台</h2>
+    </div>
+    <div id="cards-container">
+      <div class="cards-loading">ちぃ 正在准备下载链接…</div>
+    </div>
+  </section>
+
+  <section class="notes" id="notes" hidden>
+    <details>
+      <summary>本次更新内容 <span class="arrow">▼</span></summary>
+      <div class="notes-body" id="notes-body"></div>
+    </details>
+  </section>
+
+  <section class="tips">
+    <div class="tip-box">
+      <h4>安装小贴士</h4>
+      <b>macOS</b>：已 Apple 公证，正常安装即可；如遇「无法验证开发者」，请在 系统设置 → 隐私与安全性 中点击「仍要打开」。<br>
+      <b>Windows</b>：安装包暂未代码签名，SmartScreen 提示时选择 <code>更多信息 → 仍要运行</code>；浏览器警告时选择「保留」。<br>
+      应用内置自动更新，安装后无需再回到本页。
+    </div>
+  </section>
+
+  <footer>
+    <span class="mini-bow on-pink foot-bow"><i></i></span><br>
+    用 <span class="heart">♥</span> 制作 · 献给所有喜欢 Chobits 的你<br>
+    本页面为粉丝项目，与 CLAMP / 原作版权方无关 ·
+    <a href="https://github.com/Anime2Real/Chobits-Chii-Mascot-Release/releases" target="_blank" rel="noopener">所有历史版本</a>
+  </footer>
+
+</div>
+
+<script>
+(function () {
+  "use strict";
+
+  var REPO = "Anime2Real/Chobits-Chii-Mascot-Release";
+  var API = "https://api.github.com/repos/" + REPO + "/releases/latest";
+
+  /* ---------- 樱花 ---------- */
+  function spawnPetals() {
+    var holder = document.getElementById("petals");
+    var count = window.innerWidth < 640 ? 6 : 12;
+    for (var i = 0; i < count; i++) {
+      var p = document.createElement("span");
+      p.className = "petal";
+      var size = 8 + Math.random() * 9;
+      p.style.width = size + "px";
+      p.style.height = size * 0.82 + "px";
+      p.style.left = Math.random() * 100 + "vw";
+      p.style.animationDuration = 10 + Math.random() * 9 + "s";
+      p.style.animationDelay = -Math.random() * 18 + "s";
+      p.style.opacity = 0.4 + Math.random() * 0.35;
+      holder.appendChild(p);
+    }
+  }
+
+  /* ---------- 资产识别 ---------- */
+  // 命名规则：Chobits_<ver>_<platform>_<arch>.<ext>
+  function classify(name) {
+    if (/\.(blockmap|yml|yaml)$/i.test(name)) return null;
+    if (/darwin_arm64\.dmg$/i.test(name))  return { os: "macos", variant: "Apple Silicon · M 系列", label: "下载 .dmg" };
+    if (/darwin_x64\.dmg$/i.test(name))    return { os: "macos", variant: "Intel 芯片", label: "下载 .dmg" };
+    if (/darwin_arm64\.zip$/i.test(name))  return { os: "macos", variant: "Apple Silicon · M 系列", label: "下载 .zip", secondary: true };
+    if (/darwin_x64\.zip$/i.test(name))    return { os: "macos", variant: "Intel 芯片", label: "下载 .zip", secondary: true };
+    if (/win32_x64\.exe$/i.test(name))     return { os: "windows", variant: "64 位安装包", label: "下载 .exe" };
+    if (/linux_amd64\.deb$/i.test(name))   return { os: "linux", variant: "Debian / Ubuntu", label: "下载 .deb" };
+    if (/linux.*\.AppImage$/i.test(name))  return { os: "linux", variant: "通用 AppImage", label: "下载 .AppImage" };
+    return null;
+  }
+
+  var OS_META = {
+    macos:   { title: "macOS",   emblem: "M" },
+    windows: { title: "Windows", emblem: "W" },
+    linux:   { title: "Linux",   emblem: "L" }
+  };
+
+  function detectOS() {
+    var ua = navigator.userAgent;
+    if (/Mac OS X|Macintosh/.test(ua)) return "macos";
+    if (/Windows/.test(ua)) return "windows";
+    if (/Linux/.test(ua)) return "linux";
+    return null;
+  }
+
+  // Apple Silicon 检测：ARM Mac 在部分浏览器暴露于 userAgent / WebGL；
+  // 无法判断时默认 Apple Silicon（当前 Mac 主流）
+  function preferArmMac() {
+    if (/arm64|aarch64/i.test(navigator.userAgent)) return true;
+    try {
+      var gl = document.createElement("canvas").getContext("webgl");
+      var dbg = gl && gl.getExtension("WEBGL_debug_renderer_info");
+      var renderer = dbg ? gl.getParameter(dbg.UNMASKED_RENDERER_WEBGL) : "";
+      if (/Apple M/i.test(renderer)) return true;
+      if (/Intel/i.test(renderer)) return false;
+    } catch (e) { /* ignore */ }
+    return true;
+  }
+
+  function fmtSize(bytes) {
+    if (!bytes) return "";
+    return (bytes / 1024 / 1024).toFixed(0) + " MB";
+  }
+
+  /* ---------- 渲染 ---------- */
+  function render(release) {
+    var groups = { macos: [], windows: [], linux: [] };
+    var totalDl = 0;
+
+    release.assets.forEach(function (a) {
+      totalDl += a.download_count || 0;
+      var c = classify(a.name);
+      if (!c || !groups[c.os]) return;
+      groups[c.os].push({
+        url: a.browser_download_url,
+        size: a.size,
+        dl: a.download_count || 0,
+        variant: c.variant,
+        label: c.label,
+        secondary: !!c.secondary,
+        arm: /arm64/i.test(a.name)
+      });
+    });
+
+    var myOS = detectOS();
+    var arm = myOS === "macos" && preferArmMac();
+
+    document.getElementById("version-tag").textContent = release.tag_name;
+    document.getElementById("version-date").textContent =
+      new Date(release.published_at).toLocaleDateString("zh-CN");
+    document.getElementById("version-dl").textContent = totalDl.toLocaleString();
+    document.getElementById("version-pill").hidden = false;
+
+    if (release.body && release.body.trim()) {
+      document.getElementById("notes-body").textContent = release.body.trim();
+      document.getElementById("notes").hidden = false;
+    }
+
+    var order = ["macos", "windows", "linux"];
+    if (myOS) {
+      order = [myOS].concat(order.filter(function (o) { return o !== myOS; }));
+    }
+
+    var html = '<div class="cards">';
+    order.forEach(function (os) {
+      var items = groups[os];
+      if (!items.length) return;
+      var meta = OS_META[os];
+
+      // macOS 两张卡：arm64 / x64；其余系统一张卡（主按钮 + 次要按钮）
+      if (os === "macos") {
+        items.forEach(function (it) {
+          if (it.secondary) return;
+          var rec = myOS === "macos" && it.arm === arm;
+          html += cardHtml(meta, it, rec);
+        });
+      } else {
+        var primary = items.filter(function (i) { return !i.secondary; })[0] || items[0];
+        html += cardHtml(meta, primary, myOS === os, items.filter(function (i) { return i !== primary; }));
+      }
+    });
+    html += "</div>";
+
+    document.getElementById("cards-container").innerHTML = html;
+  }
+
+  function cardHtml(meta, item, recommended, extraItems) {
+    var h = '<div class="card' + (recommended ? " recommended" : "") + '">';
+    h += '<div class="os-emblem">' + meta.emblem + "</div>";
+    h += "<h3>" + meta.title + "</h3>";
+    h += '<div class="variant">' + item.variant + "</div>";
+    h += '<a class="btn" href="' + item.url + '">' + item.label + "</a>";
+    (extraItems || []).forEach(function (it) {
+      h += '<a class="btn secondary" href="' + it.url + '">' + it.label + "</a>";
+    });
+    h += '<div class="meta">' + fmtSize(item.size);
+    if (item.dl > 0) h += " · 已下载 <b>" + item.dl.toLocaleString() + "</b> 次";
+    h += "</div></div>";
+    return h;
+  }
+
+  function renderError() {
+    document.getElementById("cards-container").innerHTML =
+      '<div class="cards-error">没能取到下载链接（可能是 API 请求太频繁）。<br>' +
+      '可以前往 <a href="https://github.com/' + REPO + '/releases/latest" target="_blank" rel="noopener">GitHub Releases</a> 下载最新版本。</div>';
+  }
+
+  spawnPetals();
+
+  fetch(API, { headers: { "Accept": "application/vnd.github+json" } })
+    .then(function (r) {
+      if (!r.ok) throw new Error("HTTP " + r.status);
+      return r.json();
+    })
+    .then(render)
+    .catch(renderError);
+})();
+</script>
+</body>
+</html>
