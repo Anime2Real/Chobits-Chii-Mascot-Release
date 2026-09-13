@@ -1,6 +1,6 @@
 # Chobits-Chii-Mascot-Release
 
-Chobits 桌宠的公开发布渠道。本仓库只承载 Release 产物（安装包与自动更新元数据），不包含源码。
+Chobits 桌宠的公开发布渠道。本仓库承载 Release 产物（安装包与自动更新元数据），应用源码在私有仓库；`app/` 为发布主页的页面源码，由 GitHub Actions 自动构建并部署到 GitHub Pages。
 
 ## 下载
 

@@ -1,0 +1,317 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --cream: #fff9ee;
+  --paper: #f6f1e7;
+  --blush: #f7e2e7;
+  --pink: #ffd3e0;
+  --pink-deep: #e86a92;
+  --lavender: #ebecfa;
+  --mint: #dff3ea;
+  --peach: #f6eadf;
+  --sage: #dfe8e6;
+  --blue-soft: #bbe9f2;
+  --ink: #54453f;
+  --ink-deep: #3e322c;
+  --ink-soft: rgba(84, 69, 63, 0.62);
+  --line: #54453f;
+  --ease-bounce: cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--cream);
+  color: var(--ink);
+  font-family: "M PLUS Rounded 1c", "PingFang SC", "Hiragino Sans GB",
+    "Microsoft YaHei", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+.font-display {
+  font-family: "ZCOOL KuaiLe", "M PLUS Rounded 1c", "PingFang SC",
+    "Microsoft YaHei", sans-serif;
+  font-weight: 400;
+}
+
+::selection {
+  background: var(--pink-deep);
+  color: #fff;
+}
+
+/* ---------- noise texture ---------- */
+.noise {
+  position: relative;
+  isolation: isolate;
+}
+.noise::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.5;
+  mix-blend-mode: multiply;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23n)' opacity='0.06'/%3E%3C/svg%3E");
+}
+.noise > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* ---------- buttons ---------- */
+.btn-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  border-radius: 999px;
+  border: 1.5px solid var(--line);
+  padding: 0.8rem 1.6rem;
+  font-weight: 700;
+  font-size: 0.95rem;
+  line-height: 1;
+  color: var(--ink);
+  background: #fff;
+  cursor: pointer;
+  text-decoration: none;
+  transition: transform 0.25s var(--ease-bounce), box-shadow 0.25s var(--ease-bounce),
+    background 0.25s var(--ease-bounce);
+}
+.btn-pill:hover {
+  transform: translateY(-3px) rotate(-1deg);
+  box-shadow: 0 6px 0 rgba(84, 69, 63, 0.9);
+}
+.btn-pill:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 0 rgba(84, 69, 63, 0.9);
+}
+.btn-pill--dark {
+  background: var(--ink-deep);
+  color: var(--cream);
+  border-color: var(--ink-deep);
+}
+.btn-pill--pink {
+  background: var(--pink);
+}
+
+/* ---------- letter bounce ---------- */
+.bounce-char {
+  display: inline-block;
+  transform-origin: 50% 100%;
+}
+.bounce-group:hover .bounce-char {
+  animation: char-bounce 0.65s var(--ease-bounce) both;
+  animation-delay: calc(var(--i) * 55ms);
+}
+@keyframes char-bounce {
+  0% {
+    transform: translateY(0) rotate(0deg) scale(1);
+  }
+  30% {
+    transform: translateY(-0.22em) rotate(-6deg) scale(1.06);
+  }
+  55% {
+    transform: translateY(0.04em) rotate(3deg) scale(0.98);
+  }
+  75% {
+    transform: translateY(-0.08em) rotate(-1.5deg);
+  }
+  100% {
+    transform: translateY(0) rotate(0deg) scale(1);
+  }
+}
+
+/* ---------- floats & wiggles ---------- */
+@keyframes float-y {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-14px);
+  }
+}
+.float-y {
+  animation: float-y 5s ease-in-out infinite;
+}
+
+@keyframes wiggle {
+  0%,
+  100% {
+    transform: rotate(-8deg);
+  }
+  50% {
+    transform: rotate(10deg);
+  }
+}
+.wiggle {
+  animation: wiggle 3.2s ease-in-out infinite;
+  transform-origin: center;
+}
+.wiggle--slow {
+  animation-duration: 4.6s;
+}
+.wiggle--rev {
+  animation-direction: reverse;
+}
+
+@keyframes spin-slow {
+  to {
+    transform: rotate(360deg);
+  }
+}
+.spin-slow {
+  animation: spin-slow 18s linear infinite;
+}
+
+@keyframes bob {
+  0%,
+  100% {
+    transform: translateY(0) rotate(-2deg);
+  }
+  50% {
+    transform: translateY(-8px) rotate(2deg);
+  }
+}
+.bob {
+  animation: bob 2.8s var(--ease-bounce) infinite;
+}
+
+/* ---------- reveal on scroll ---------- */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px) scale(0.985);
+  transition: opacity 0.7s ease, transform 0.7s var(--ease-bounce);
+  transition-delay: var(--d, 0ms);
+  will-change: opacity, transform;
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+/* ---------- marquee ---------- */
+.marquee {
+  overflow: hidden;
+  position: relative;
+}
+.marquee::before,
+.marquee::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 90px;
+  z-index: 2;
+  pointer-events: none;
+}
+.marquee::before {
+  left: 0;
+  background: linear-gradient(to right, var(--marquee-bg, var(--pink)), transparent);
+}
+.marquee::after {
+  right: 0;
+  background: linear-gradient(to left, var(--marquee-bg, var(--pink)), transparent);
+}
+.marquee__track {
+  display: flex;
+  width: max-content;
+  animation: marquee 26s linear infinite;
+}
+.marquee:hover .marquee__track {
+  animation-play-state: paused;
+}
+@keyframes marquee {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+/* ---------- frames & stickers ---------- */
+.card-line {
+  border: 1.5px solid var(--line);
+}
+.arch-frame {
+  border: 1.5px solid var(--line);
+  border-radius: 999px 999px 28px 28px;
+  overflow: hidden;
+  background: #fff;
+}
+.tape {
+  position: absolute;
+  width: 92px;
+  height: 26px;
+  background: rgba(255, 211, 224, 0.85);
+  border-left: 1.5px dashed rgba(84, 69, 63, 0.35);
+  border-right: 1.5px dashed rgba(84, 69, 63, 0.35);
+  transform: rotate(-6deg);
+  box-shadow: 0 1px 2px rgba(84, 69, 63, 0.12);
+}
+
+.tag-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  border: 1.5px solid var(--line);
+  border-radius: 999px;
+  padding: 0.35rem 0.9rem;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  background: #fff;
+}
+
+.hover-lift {
+  transition: transform 0.3s var(--ease-bounce), box-shadow 0.3s var(--ease-bounce);
+}
+.hover-lift:hover {
+  transform: translateY(-5px) rotate(-0.5deg);
+  box-shadow: 0 8px 0 rgba(84, 69, 63, 0.14);
+}
+
+@keyframes heartbeat {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  12% {
+    transform: scale(1.18);
+  }
+  24% {
+    transform: scale(1);
+  }
+  36% {
+    transform: scale(1.12);
+  }
+  48% {
+    transform: scale(1);
+  }
+}
+.heartbeat {
+  animation: heartbeat 2.4s ease-in-out infinite;
+  transform-origin: center;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .float-y,
+  .wiggle,
+  .wiggle--slow,
+  .wiggle--rev,
+  .spin-slow,
+  .bob,
+  .heartbeat,
+  .marquee__track {
+    animation: none;
+  }
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
