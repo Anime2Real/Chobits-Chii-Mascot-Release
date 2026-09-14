@@ -77,7 +77,7 @@ export default function Hero() {
 
           <Reveal delay={330}>
             <p className="mt-6 text-xs font-bold tracking-widest text-[var(--ink-soft)]">
-              macOS · Windows · 免费开源
+              macOS · Windows · Linux · 免费开源
             </p>
           </Reveal>
         </div>
