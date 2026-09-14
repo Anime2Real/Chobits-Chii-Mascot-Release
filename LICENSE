@@ -1,0 +1,95 @@
+Chobits-Chii-Mascot End User License Agreement
+
+Copyright (c) 2026 Anime2Real. All rights reserved.
+
+IMPORTANT — READ CAREFULLY: By downloading, installing, or using the
+Chobits-Chii-Mascot software (the "Software"), you agree to be bound by
+the terms of this License. If you do not agree, do not download, install,
+or use the Software.
+
+1. DEFINITIONS
+
+   "Software" means the Chobits-Chii-Mascot desktop application in binary
+   (executable) form distributed through this repository's Releases, along
+   with any accompanying documentation, auto-update metadata, and updates
+   or upgrades provided by the Licensor.
+
+   "Licensor" means the Anime2Real project and its contributors.
+
+   "Content of this repository" means all source code, assets, and other
+   materials contained in this repository, including but not limited to the
+   release page source code under `app/`.
+
+2. GRANT OF LICENSE
+
+   The Licensor grants you a non-exclusive, non-transferable, revocable
+   license to download, install, and use the Software free of charge for
+   personal, non-commercial purposes, subject to the terms of this License.
+
+3. RESTRICTIONS
+
+   Unless expressly permitted by applicable law notwithstanding this
+   limitation, you may NOT:
+
+   a) copy, modify, adapt, translate, or create derivative works based on
+      the Software or the Content of this repository;
+   b) decompile, disassemble, reverse engineer, or otherwise attempt to
+      derive the source code of the Software;
+   c) redistribute, sublicense, rent, lease, lend, sell, or otherwise
+      transfer or make available the Software or the Content of this
+      repository to any third party, whether commercially or not;
+   d) remove, alter, or obscure any copyright, trademark, or other
+      proprietary notices contained in the Software;
+   e) use the Software for any commercial purpose without the prior written
+      permission of the Licensor.
+
+4. SOURCE CODE AND REPOSITORY CONTENT
+
+   The Software is proprietary freeware, not open source software. The
+   source code of the Software is maintained in a private repository and
+   is not licensed hereunder. All Content of this repository is provided
+   for viewing only; no license is granted to use, copy, modify, or
+   redistribute it, except as permitted by GitHub's Terms of Service
+   (e.g., forking within GitHub).
+
+5. AUTOMATIC UPDATES
+
+   The Software may automatically download and install updates, upgrades,
+   or new versions. Such updates are governed by this License unless
+   accompanied by a separate license.
+
+6. INTELLECTUAL PROPERTY
+
+   The Software and the Content of this repository, including all
+   intellectual property rights therein, are and remain the exclusive
+   property of the Licensor. This License does not grant you any ownership
+   interest in the Software.
+
+7. NO WARRANTY
+
+   THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
+   OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+   MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+   THE LICENSOR DOES NOT WARRANT THAT THE SOFTWARE WILL BE ERROR-FREE OR
+   UNINTERRUPTED.
+
+8. LIMITATION OF LIABILITY
+
+   IN NO EVENT SHALL THE LICENSOR BE LIABLE FOR ANY DIRECT, INDIRECT,
+   INCIDENTAL, SPECIAL, CONSEQUENTIAL, OR PUNITIVE DAMAGES, INCLUDING BUT
+   NOT LIMITED TO LOSS OF DATA, LOSS OF PROFITS, OR BUSINESS INTERRUPTION,
+   ARISING OUT OF OR IN CONNECTION WITH THE USE OR INABILITY TO USE THE
+   SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGES.
+
+9. TERMINATION
+
+   This License is effective until terminated. It will terminate
+   automatically without notice if you breach any of its terms. Upon
+   termination, you must cease all use of the Software and destroy all
+   copies in your possession.
+
+10. GOVERNING LAW
+
+    This License shall be governed by and construed in accordance with the
+    laws of the jurisdiction in which the Licensor resides, without regard
+    to conflict of law principles.

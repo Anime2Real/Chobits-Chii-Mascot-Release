@@ -35,3 +35,7 @@ The app has built-in auto-updates, so you won't need to return to this page afte
 ## Why the source code is not open yet
 
 The source code of Chobits-Chii-Mascot is currently not open source. The main reason is to ensure the security of the software's usage data: until we have confirmed that the project has no major risk vulnerabilities, we will keep the source code private to prevent potential security issues from being exploited. Once the project has passed thorough security review and verification, we will re-evaluate our open-source plans.
+
+## License
+
+This software is proprietary freeware (not open source), released under the End User License Agreement in [LICENSE](./LICENSE). It is free to download and use for personal, non-commercial purposes. Modification, reverse engineering, redistribution, and unauthorized commercial use are prohibited.
