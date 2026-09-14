@@ -2,6 +2,15 @@ import BounceText, { FlowerMark } from "../components/BounceText";
 import Reveal from "../components/Reveal";
 import chiiHero from "../assets/chii-hero.webp";
 
+function Bow({ className = "" }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 48 32" className={className} fill="currentColor" aria-hidden>
+      <path d="M24 14c-4-7-14-11-20-8C0 8 1 16 4 20c4 5 14 3 20-2 6 5 16 7 20 2 3-4 4-12 0-14-6-3-16 1-20 8Z" />
+      <circle cx="24" cy="15" r="4.2" fill="var(--cream)" stroke="currentColor" strokeWidth="2.4" />
+    </svg>
+  );
+}
+
 export default function Hero() {
   return (
     <section id="top" className="noise relative overflow-hidden bg-[var(--cream)] pb-0 pt-28 md:pt-36">
@@ -12,12 +21,12 @@ export default function Hero() {
         <div className="absolute bottom-10 left-1/3 h-64 w-64 rounded-full bg-[var(--mint)] opacity-60 blur-2xl" />
       </div>
 
-      {/* floating decorations */}
-      <FlowerMark aria-hidden className="wiggle absolute left-[6%] top-32 hidden h-10 w-10 text-[var(--pink-deep)] md:block" />
-      <FlowerMark aria-hidden className="wiggle wiggle--slow absolute right-[8%] top-52 hidden h-8 w-8 text-[#c9b8f0] md:block" />
-      <FlowerMark aria-hidden className="wiggle wiggle--rev absolute bottom-40 left-[12%] hidden h-7 w-7 text-[#8fd3b6] md:block" />
-      <span aria-hidden className="float-y absolute right-[16%] top-28 hidden font-display text-2xl text-[var(--pink-deep)] md:block">
-        ❀
+      {/* floating decorations — 黑蝴蝶结呼应女仆装，白蕾丝边呼应头饰 */}
+      <Bow className="wiggle absolute left-[6%] top-32 hidden h-10 w-14 text-[var(--ink-deep)] md:block" />
+      <FlowerMark aria-hidden className="wiggle wiggle--slow absolute right-[8%] top-52 hidden h-8 w-8 text-[var(--pink-deep)] md:block" />
+      <Bow className="wiggle wiggle--rev absolute bottom-40 left-[10%] hidden h-7 w-10 rotate-12 text-[var(--pink-deep)] md:block" />
+      <span aria-hidden className="float-y absolute right-[16%] top-28 hidden font-display text-2xl text-[var(--ink-deep)] md:block">
+        ♡
       </span>
 
       <div className="relative mx-auto grid max-w-6xl items-center gap-12 px-4 md:grid-cols-[1.15fr_0.85fr] md:px-6">
@@ -89,14 +98,16 @@ export default function Hero() {
             <div className="arch-frame hover-lift relative bg-white">
               <img
                 src={chiiHero}
-                alt="ちぃ（Chii）—— Chobits 中的人形电脑"
+                alt="女仆装的ちぃ（Chii）—— Chobits 中的人形电脑"
                 className="block h-auto w-full"
                 loading="eager"
               />
             </div>
-            <span className="tape -top-3 left-1/2 -translate-x-1/2" aria-hidden />
+            {/* 白色蕾丝胶带 + 黑蝴蝶结，呼应女仆装 */}
+            <span className="tape tape--lace -top-3 left-1/2 -translate-x-1/2" aria-hidden />
+            <Bow className="absolute -left-5 top-10 z-10 h-8 w-11 -rotate-12 text-[var(--ink-deep)]" />
             <div className="card-line absolute -bottom-5 -left-4 rotate-[-4deg] rounded-2xl bg-[var(--blush)] px-4 py-2 font-display text-lg">
-              ちぃ、だいすき ♡
+              おかえりなさい、ご主人さま ♡
             </div>
           </div>
         </Reveal>

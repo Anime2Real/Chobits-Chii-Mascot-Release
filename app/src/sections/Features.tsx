@@ -2,8 +2,8 @@ import Reveal from "../components/Reveal";
 import BounceText from "../components/BounceText";
 import ScallopEdge from "../components/ScallopEdge";
 import chiiHideki from "../assets/chii-hideki-chibi.webp";
-import sumomo from "../assets/sumomo.webp";
-import chiiWindow from "../assets/chii-window.webp";
+import chiiHeadpat from "../assets/chii-headpat.webp";
+import chiiPicturebook from "../assets/chii-picturebook.webp";
 
 const features = [
   {
@@ -18,20 +18,20 @@ const features = [
   {
     no: "02",
     bg: "var(--lavender)",
-    img: sumomo,
-    alt: "SUMOMO 拉开窗帘",
+    img: chiiHeadpat,
+    alt: "秀树轻轻摸着ちぃ的头",
     title: "摸摸头，有回应",
-    body: "点击、拖拽、戳一戳——她会有各种小反应。就像真正的人形电脑一样，ちぃ 会慢慢熟悉你这台「只属于你的一台」。",
-    chips: ["点击互动", "随机动作", "彩蛋语音"],
+    body: "点击、拖拽、戳一戳——你的每个小动作，ちぃ 都会给出自己的回应。摸摸她的头，她会安心地眯起眼睛；多陪她一会儿，她今天的心情也会跟着变好。",
+    chips: ["点击互动", "摸头回应", "心情变化"],
   },
   {
     no: "03",
     bg: "var(--mint)",
-    img: chiiWindow,
-    alt: "窗边的ちぃ与秀树",
-    title: "一直是最新的她",
-    body: "应用内置自动更新。安装一次，之后的新衣服、新动作、新表情都会自己送到你手上，不用再回到这个页面。",
-    chips: ["自动更新", "开机自启", "离线可用"],
+    img: chiiPicturebook,
+    alt: "ちぃ抱着绘本《だれもいない町》",
+    title: "ちぃ 会记得你",
+    body: "你们聊过的点点滴滴，ちぃ 都会悄悄记在心里。聊得越多，她就越懂你的喜好和习惯——慢慢地，成为真正「只属于你的一台」。",
+    chips: ["对话记忆", "越聊越懂你", "记忆本地保存"],
   },
 ];
 

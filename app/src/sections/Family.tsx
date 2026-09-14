@@ -25,7 +25,7 @@ export default function Family() {
           <p className="mx-auto mt-5 max-w-xl leading-relaxed text-[var(--ink-soft)]">
             《Chobits》的世界里还有许多可爱的面孔。
             <br />
-            我们正在努力，让这张合照里的大家，一个接一个地住进你的桌面。
+            我们正在努力，让这张合照里的大家，一个接一个地来到你身边。
           </p>
         </Reveal>
 

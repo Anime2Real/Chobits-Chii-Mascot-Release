@@ -18,7 +18,7 @@ interface ReleaseInfo {
   assets: Asset[];
 }
 
-type PlatformKey = "macos-arm" | "macos-intel" | "windows";
+type PlatformKey = "macos-arm" | "macos-intel" | "windows" | "linux";
 
 function classify(assetName: string): PlatformKey | null {
   const n = assetName.toLowerCase();
@@ -27,6 +27,8 @@ function classify(assetName: string): PlatformKey | null {
     return "macos-intel";
   }
   if (n.endsWith(".exe") || n.endsWith(".msi") || n.includes("win")) return "windows";
+  if (n.endsWith(".appimage") || n.endsWith(".deb") || n.endsWith(".rpm") || n.includes("linux"))
+    return "linux";
   return null;
 }
 
@@ -106,6 +108,16 @@ export default function Download() {
         </svg>
       ),
     },
+    {
+      key: "linux",
+      label: "Linux",
+      sub: "AppImage / deb",
+      icon: (
+        <svg viewBox="0 0 24 24" className="h-8 w-8" fill="currentColor" aria-hidden>
+          <path d="M12.5 1.6c-1.5 0-2.7 1.2-2.9 2.8-.1.7-.1 1.5-.3 2.1-.3 1-1 1.9-1.3 2.9-.2.7-.3 1.5-.4 2.2-.1.6-.2 1.3-.5 1.8-.3.6-.8 1.1-1.2 1.7-.3.4-.6.9-.8 1.4-.2.6-.3 1.3-.2 1.9.1.5.4 1.1.8 1.3.4.3 1 .4 1.5.5.6.2 1.2.3 1.9.4.8.1 1.6.2 2.4.2 1.3 0 2.6-.1 3.8-.4.7-.2 1.4-.5 1.9-1 .4-.4.6-1 .5-1.6-.1-.7-.5-1.3-.9-1.9-.4-.6-.9-1.2-1.2-1.8-.3-.6-.4-1.2-.5-1.9-.1-.8-.2-1.6-.4-2.4-.2-1-.7-1.9-1-2.9-.2-.7-.2-1.4-.3-2.1-.2-1.6-1.3-2.8-2.6-2.9l-.5-.1Zm-1.9 3.5c.5-.1 1 .1 1.1.6.1.5-.2 1-.7 1.1-.5.1-1-.2-1.1-.6-.1-.5.2-1 .7-1.1Zm3.4 0c.5-.1 1 .2 1.1.6.1.5-.2 1-.7 1.1-.5.1-1-.1-1.1-.6-.1-.5.2-1 .7-1.1Zm-3.2 2.1c.5-.3 1.1-.4 1.7-.3.6.1 1.1.4 1.4.9.1.2.1.4-.1.6-.3.2-.8.1-1.2 0-.5-.1-1.1 0-1.5.3-.2.1-.4.1-.5-.1-.1-.2-.1-.4 0-.6.1-.4.1-.6.2-.8Zm-4.3 8.1c.4-.3.9-.6 1.4-.7.5-.1 1-.1 1.5 0 .4.1.7.3.9.6.1.2.1.5-.1.7-.3.3-.8.4-1.3.4-.6 0-1.2-.1-1.7-.3-.3-.1-.6-.3-.7-.5v-.2Zm5.9-.3c.4-.2.9-.4 1.4-.4.5 0 1 .1 1.4.3.3.2.6.4.7.7.1.3-.1.6-.3.7-.4.2-.9.2-1.3.2-.5 0-1.1-.1-1.5-.3-.3-.1-.5-.3-.6-.5 0-.3 0-.5.2-.7Z" />
+        </svg>
+      ),
+    },
   ];
 
   return (
@@ -124,7 +136,7 @@ export default function Download() {
           )}
         </Reveal>
 
-        <div className="mt-12 grid gap-6 md:grid-cols-3">
+        <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {platforms.map((p, i) => {
             const asset = assetFor(p.key);
             return (
