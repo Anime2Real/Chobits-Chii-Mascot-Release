@@ -4,41 +4,29 @@ import ScallopEdge from "../components/ScallopEdge";
 import chiiHideki from "../assets/chii-hideki-chibi.webp";
 import chiiHeadpat from "../assets/chii-headpat.webp";
 import chiiPicturebook from "../assets/chii-picturebook.webp";
+import chiiPicturebookJa from "../assets/chii-picturebook-ja.webp";
+import chiiPicturebookEn from "../assets/chii-picturebook-en.webp";
+import { useLang, type Lang } from "../i18n";
 
-const features = [
-  {
-    no: "01",
-    bg: "var(--blush)",
-    dot: "#e86a92",
-    img: chiiHideki,
-    alt: "ちぃ 躲在秀树身后",
-    title: "住在桌面上",
-    body: "开机之后，ちぃ 就安静地待在屏幕一角。不占地方、不抢焦点，只在你需要一点治愈的时候，刚好出现在视线里。",
-    chips: ["开机自动启动", "窗口置顶可选", "支持多显示器"],
-  },
-  {
-    no: "02",
-    bg: "var(--lavender)",
-    dot: "#8f83d8",
-    img: chiiHeadpat,
-    alt: "秀树轻轻摸着ちぃ的头",
-    title: "摸头有回应",
-    body: "点击、拖拽、戳一戳——你的每个小动作，ちぃ 都会给出自己的回应。摸摸她的头，她会安心地眯起眼睛；多陪她一会儿，她今天的心情也会跟着变好。",
-    chips: ["多种互动手势", "表情即时反馈", "陪伴提升心情"],
-  },
-  {
-    no: "03",
-    bg: "var(--mint)",
-    dot: "#3fa57c",
-    img: chiiPicturebook,
-    alt: "绘本《只属于我的人 ～空无一人的城镇～》插画",
-    title: "越聊越懂你",
-    body: "你们聊过的点点滴滴，ちぃ 都会悄悄记在心里。聊得越多，她就越懂你的喜好和习惯——慢慢地，成为真正「只属于你的一台」。",
-    chips: ["对话内容记忆", "记住你的喜好", "记忆仅存本地"],
-  },
+const picturebookByLang: Record<Lang, string> = {
+  zh: chiiPicturebook,
+  ja: chiiPicturebookJa,
+  en: chiiPicturebookEn,
+};
+
+const featureMeta = [
+  { no: "01", bg: "var(--blush)", dot: "#e86a92", img: chiiHideki },
+  { no: "02", bg: "var(--lavender)", dot: "#8f83d8", img: chiiHeadpat },
+  { no: "03", bg: "var(--mint)", dot: "#3fa57c", img: chiiPicturebook },
 ];
 
 export default function Features() {
+  const { t, lang } = useLang();
+  const features = featureMeta.map((m, i) => ({
+    ...m,
+    ...t.features.items[i],
+    img: i === 2 ? picturebookByLang[lang] : m.img,
+  }));
   return (
     <section id="features" className="relative">
       {features.map((f, i) => (
@@ -78,7 +66,11 @@ export default function Features() {
               <p className="font-display text-sm tracking-[0.3em] text-[var(--ink-soft)]">
                 {f.no} — FEATURE
               </p>
-              <h2 className="font-display mt-3 text-4xl tracking-wide md:text-5xl">
+              <h2
+                className={`font-display mt-3 tracking-wide ${
+                  lang === "en" ? "text-3xl md:text-4xl" : "text-4xl md:text-5xl"
+                }`}
+              >
                 <BounceText text={f.title} />
               </h2>
               <p className="mt-5 max-w-md leading-relaxed text-[var(--ink-soft)]">{f.body}</p>

@@ -1,6 +1,7 @@
 import BounceText, { FlowerMark } from "../components/BounceText";
 import Reveal from "../components/Reveal";
 import chiiHero from "../assets/chii-hero.webp";
+import { useLang } from "../i18n";
 
 function Bow({ className = "" }: { className?: string }) {
   return (
@@ -12,6 +13,7 @@ function Bow({ className = "" }: { className?: string }) {
 }
 
 export default function Hero() {
+  const { t, lang } = useLang();
   return (
     <section id="top" className="noise relative overflow-hidden bg-[var(--cream)] pb-0 pt-28 md:pt-36">
       {/* pastel blobs */}
@@ -22,7 +24,7 @@ export default function Hero() {
       </div>
 
       {/* floating decorations — 黑蝴蝶结呼应女仆装，白蕾丝边呼应头饰 */}
-      <Bow className="wiggle absolute left-[6%] top-32 hidden h-10 w-14 text-[var(--ink-deep)] md:block" />
+      <Bow className="wiggle absolute left-[3%] top-56 hidden h-10 w-14 text-[var(--ink-deep)] md:block" />
       <FlowerMark aria-hidden className="wiggle wiggle--slow absolute right-[8%] top-52 hidden h-8 w-8 text-[var(--pink-deep)] md:block" />
       <Bow className="wiggle wiggle--rev absolute bottom-40 left-[10%] hidden h-7 w-10 rotate-12 text-[var(--pink-deep)] md:block" />
       <span aria-hidden className="float-y absolute right-[16%] top-28 hidden font-display text-2xl text-[var(--ink-deep)] md:block">
@@ -35,34 +37,42 @@ export default function Hero() {
           <Reveal>
             <span className="tag-pill">
               <span className="heartbeat inline-block h-2 w-2 rounded-full bg-[var(--pink-deep)]" />
-              CHOBITS DESKTOP MASCOT
+              {t.hero.tag}
             </span>
           </Reveal>
 
           <Reveal delay={90}>
-            <h1 className="font-display mt-6 text-[17vw] leading-[1.02] tracking-wide md:text-[6.4rem]">
-              <BounceText text="把" />{" "}
+            <h1
+              className={`font-display mt-6 leading-[1.08] tracking-wide ${
+                lang === "en" ? "text-[13vw] md:text-[4.6rem]" : "text-[15vw] md:text-[5.6rem]"
+              }`}
+            >
+              {t.hero.headlineBefore && (
+                <>
+                  <BounceText text={t.hero.headlineBefore} />{" "}
+                </>
+              )}
               <BounceText
                 text="ちぃ"
                 charClassName={() => "text-[var(--pink-deep)]"}
               />{" "}
-              <BounceText text="带回家" />
+              <BounceText text={t.hero.headlineAfter} />
             </h1>
           </Reveal>
 
           <Reveal delay={180}>
             <p className="mx-auto mt-6 max-w-md text-base leading-relaxed text-[var(--ink-soft)] md:mx-0 md:text-lg">
-              只属于你的一台 · ちょうびっツ。
+              {t.hero.intro1}
               <br />
-              ちぃ 会站在你的桌面角落，陪你工作、学习、发呆——
-              偶尔卖个萌，偶尔说一句「ちぃ？」。
+              {t.hero.intro2}
+              {t.hero.intro3}
             </p>
           </Reveal>
 
           <Reveal delay={260}>
             <div className="mt-9 flex flex-wrap items-center justify-center gap-4 md:justify-start">
               <a href="#download" className="btn-pill btn-pill--dark text-base">
-                <span className="bob inline-block">↓</span> Download
+                <span className="bob inline-block">↓</span> {t.hero.download}
               </a>
               <a
                 href="https://github.com/Anime2Real/Chobits-Chii-Mascot-Release"
@@ -70,14 +80,14 @@ export default function Hero() {
                 rel="noreferrer"
                 className="btn-pill btn-pill--pink text-base"
               >
-                在 GitHub 上看看 ↗
+                {t.hero.github}
               </a>
             </div>
           </Reveal>
 
           <Reveal delay={330}>
             <p className="mt-6 text-xs font-bold tracking-widest text-[var(--ink-soft)]">
-              macOS · Windows · Linux · 免费开源
+              {t.hero.platforms}
             </p>
           </Reveal>
         </div>
@@ -98,7 +108,7 @@ export default function Hero() {
             <div className="arch-frame hover-lift relative bg-white">
               <img
                 src={chiiHero}
-                alt="女仆装的ちぃ（Chii）—— Chobits 中的人形电脑"
+                alt={t.hero.heroAlt}
                 className="block h-auto w-full"
                 loading="eager"
               />

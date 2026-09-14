@@ -1,6 +1,8 @@
 import BounceText, { FlowerMark } from "../components/BounceText";
+import { useLang } from "../i18n";
 
 export default function Footer() {
+  const { t } = useLang();
   return (
     <footer className="noise bg-[var(--ink-deep)] text-[var(--cream)]">
       <div className="mx-auto max-w-6xl px-4 pb-12 pt-16 md:px-6 md:pt-24">
@@ -16,7 +18,7 @@ export default function Footer() {
               rel="noreferrer"
               className="btn-pill btn-pill--pink"
             >
-              GitHub 仓库 ↗
+              {t.footer.github} ↗
             </a>
             <a
               href="https://github.com/Anime2Real/Chobits-Chii-Mascot-Release/releases"
@@ -24,15 +26,13 @@ export default function Footer() {
               rel="noreferrer"
               className="btn-pill !border-[var(--cream)] !bg-transparent !text-[var(--cream)] hover:!shadow-[0_6px_0_rgba(255,249,238,0.35)]"
             >
-              全部 Releases ↗
+              {t.footer.releases} ↗
             </a>
           </div>
 
           <div className="flex items-center gap-3 text-xs text-[var(--cream)]/60">
             <FlowerMark className="h-4 w-4 text-[var(--pink)]" />
-            <p>
-              非官方粉丝作品 · Chobits © CLAMP・講談社／ちょびっツ製作委員会 · 代码以开源协议发布
-            </p>
+            <p>{t.footer.copyright}</p>
             <FlowerMark className="h-4 w-4 text-[var(--pink)]" />
           </div>
         </div>

@@ -1,22 +1,14 @@
 import type { CSSProperties } from "react";
 import { FlowerMark } from "../components/BounceText";
-
-const words = [
-  "ちぃ！",
-  "桌面宠物",
-  "只属于你的一台",
-  "DESKTOP MASCOT",
-  "自动更新",
-  "ちょうびっツ",
-  "免费开源",
-  "CHOBITS",
-];
+import { useLang } from "../i18n";
 
 export default function Marquee() {
+  const { t, lang } = useLang();
+
   const row = (
     <div className="flex shrink-0 items-center">
-      {words.map((w, i) => (
-        <span key={i} className="flex items-center">
+      {t.marquee.items.map((w, i) => (
+        <span key={`${lang}-${i}`} className="flex items-center">
           <span className="font-display whitespace-nowrap px-6 text-xl tracking-wide text-[var(--ink)] md:text-2xl">
             {w}
           </span>

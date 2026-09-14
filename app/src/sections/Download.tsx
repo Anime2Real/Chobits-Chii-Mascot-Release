@@ -1,6 +1,7 @@
 import { useEffect, useState, type ReactNode } from "react";
 import Reveal from "../components/Reveal";
 import BounceText, { FlowerMark } from "../components/BounceText";
+import { useLang } from "../i18n";
 
 const REPO = "Anime2Real/Chobits-Chii-Mascot-Release";
 const RELEASES_URL = `https://github.com/${REPO}/releases`;
@@ -37,6 +38,7 @@ function formatSize(bytes: number) {
 }
 
 export default function Download() {
+  const { t } = useLang();
   const [release, setRelease] = useState<ReleaseInfo | null>(null);
   const [state, setState] = useState<"loading" | "ready" | "empty">("loading");
 
@@ -81,7 +83,7 @@ export default function Download() {
     {
       key: "macos-arm",
       label: "macOS",
-      sub: "Apple Silicon",
+      sub: t.download.cards[0].sub,
       icon: (
         <svg viewBox="0 0 24 24" className="h-8 w-8" fill="currentColor" aria-hidden>
           <path d="M17.05 12.54c-.03-2.89 2.36-4.27 2.47-4.34-1.35-1.97-3.44-2.24-4.18-2.27-1.78-.18-3.47 1.05-4.37 1.05-.9 0-2.29-1.02-3.77-1-1.94.03-3.72 1.13-4.72 2.86-2.01 3.49-.51 8.66 1.45 11.5.96 1.39 2.1 2.95 3.6 2.89 1.45-.06 2-.93 3.75-.93s2.25.93 3.78.9c1.56-.03 2.55-1.41 3.5-2.8 1.1-1.61 1.55-3.17 1.58-3.25-.04-.02-3.03-1.16-3.09-4.61ZM14.16 4.06c.8-.97 1.34-2.32 1.19-3.66-1.15.05-2.55.77-3.38 1.73-.74.86-1.39 2.23-1.22 3.55 1.29.1 2.6-.65 3.41-1.62Z" />
@@ -91,7 +93,7 @@ export default function Download() {
     {
       key: "macos-intel",
       label: "macOS",
-      sub: "Intel",
+      sub: t.download.cards[1].sub,
       icon: (
         <svg viewBox="0 0 24 24" className="h-8 w-8" fill="currentColor" aria-hidden>
           <path d="M17.05 12.54c-.03-2.89 2.36-4.27 2.47-4.34-1.35-1.97-3.44-2.24-4.18-2.27-1.78-.18-3.47 1.05-4.37 1.05-.9 0-2.29-1.02-3.77-1-1.94.03-3.72 1.13-4.72 2.86-2.01 3.49-.51 8.66 1.45 11.5.96 1.39 2.1 2.95 3.6 2.89 1.45-.06 2-.93 3.75-.93s2.25.93 3.78.9c1.56-.03 2.55-1.41 3.5-2.8 1.1-1.61 1.55-3.17 1.58-3.25-.04-.02-3.03-1.16-3.09-4.61ZM14.16 4.06c.8-.97 1.34-2.32 1.19-3.66-1.15.05-2.55.77-3.38 1.73-.74.86-1.39 2.23-1.22 3.55 1.29.1 2.6-.65 3.41-1.62Z" />
@@ -101,7 +103,7 @@ export default function Download() {
     {
       key: "windows",
       label: "Windows",
-      sub: "10 / 11",
+      sub: t.download.cards[2].sub,
       icon: (
         <svg viewBox="0 0 24 24" className="h-8 w-8" fill="currentColor" aria-hidden>
           <path d="M3 5.5 10.5 4.4v7.1H3V5.5Zm9 7.5H3v6l7.5 1.1V13Zm1.5-9.9L21 1.5v10h-7.5V3.1Zm7.5 9.9v9.4l-7.5-1.4v-8H21Z" />
@@ -111,7 +113,7 @@ export default function Download() {
     {
       key: "linux",
       label: "Linux",
-      sub: "AppImage / deb",
+      sub: t.download.cards[3].sub,
       icon: (
         <svg viewBox="0 0 24 24" className="h-8 w-8" fill="currentColor" aria-hidden>
           <path d="M12.5 1.6c-1.5 0-2.7 1.2-2.9 2.8-.1.7-.1 1.5-.3 2.1-.3 1-1 1.9-1.3 2.9-.2.7-.3 1.5-.4 2.2-.1.6-.2 1.3-.5 1.8-.3.6-.8 1.1-1.2 1.7-.3.4-.6.9-.8 1.4-.2.6-.3 1.3-.2 1.9.1.5.4 1.1.8 1.3.4.3 1 .4 1.5.5.6.2 1.2.3 1.9.4.8.1 1.6.2 2.4.2 1.3 0 2.6-.1 3.8-.4.7-.2 1.4-.5 1.9-1 .4-.4.6-1 .5-1.6-.1-.7-.5-1.3-.9-1.9-.4-.6-.9-1.2-1.2-1.8-.3-.6-.4-1.2-.5-1.9-.1-.8-.2-1.6-.4-2.4-.2-1-.7-1.9-1-2.9-.2-.7-.2-1.4-.3-2.1-.2-1.6-1.3-2.8-2.6-2.9l-.5-.1Zm-1.9 3.5c.5-.1 1 .1 1.1.6.1.5-.2 1-.7 1.1-.5.1-1-.2-1.1-.6-.1-.5.2-1 .7-1.1Zm3.4 0c.5-.1 1 .2 1.1.6.1.5-.2 1-.7 1.1-.5.1-1-.1-1.1-.6-.1-.5.2-1 .7-1.1Zm-3.2 2.1c.5-.3 1.1-.4 1.7-.3.6.1 1.1.4 1.4.9.1.2.1.4-.1.6-.3.2-.8.1-1.2 0-.5-.1-1.1 0-1.5.3-.2.1-.4.1-.5-.1-.1-.2-.1-.4 0-.6.1-.4.1-.6.2-.8Zm-4.3 8.1c.4-.3.9-.6 1.4-.7.5-.1 1-.1 1.5 0 .4.1.7.3.9.6.1.2.1.5-.1.7-.3.3-.8.4-1.3.4-.6 0-1.2-.1-1.7-.3-.3-.1-.6-.3-.7-.5v-.2Zm5.9-.3c.4-.2.9-.4 1.4-.4.5 0 1 .1 1.4.3.3.2.6.4.7.7.1.3-.1.6-.3.7-.4.2-.9.2-1.3.2-.5 0-1.1-.1-1.5-.3-.3-.1-.5-.3-.6-.5 0-.3 0-.5.2-.7Z" />
@@ -126,12 +128,12 @@ export default function Download() {
         <Reveal className="text-center">
           <p className="font-display text-sm tracking-[0.3em] text-[var(--ink-soft)]">DOWNLOAD</p>
           <h2 className="font-display mt-3 text-4xl tracking-wide md:text-6xl">
-            <BounceText text="选择你的平台" />
+            <BounceText text={t.download.title} />
           </h2>
           {state === "ready" && release && (
             <p className="mt-4 inline-flex items-center gap-2 text-sm font-bold text-[var(--ink-soft)]">
               <span className="tag-pill !bg-[var(--mint)]">{release.tag}</span>
-              发布于 {release.date}
+              {t.download.released} {release.date}
             </p>
           )}
         </Reveal>
@@ -150,13 +152,13 @@ export default function Download() {
 
                   <div className="mt-auto pt-6">
                     {state === "loading" ? (
-                      <span className="btn-pill w-full justify-center opacity-60">寻找ちぃ中…</span>
+                      <span className="btn-pill w-full justify-center opacity-60">{t.download.loading}</span>
                     ) : state === "ready" && asset ? (
                       <a href={asset.url} className="btn-pill btn-pill--dark w-full justify-center">
-                        ↓ 下载 · {formatSize(asset.size)}
+                        ↓ {t.download.downloadBtn} · {formatSize(asset.size)}
                       </a>
                     ) : (
-                      <span className="btn-pill w-full justify-center opacity-60">准备中…</span>
+                      <span className="btn-pill w-full justify-center opacity-60">{t.download.preparing}</span>
                     )}
                   </div>
                 </div>
@@ -170,9 +172,9 @@ export default function Download() {
             <div className="card-line mx-auto mt-10 flex max-w-2xl flex-col items-center gap-4 rounded-[24px] bg-[var(--cream)] px-8 py-8 text-center md:flex-row md:text-left">
               <FlowerMark className="heartbeat h-10 w-10 shrink-0 text-[var(--pink-deep)]" />
               <div>
-                <p className="font-display text-xl tracking-wide">ちぃ 正在准备下载链接…</p>
+                <p className="font-display text-xl tracking-wide">{t.download.emptyTitle}</p>
                 <p className="mt-1 text-sm leading-relaxed text-[var(--ink-soft)]">
-                  正式包还没有放出。可以先去 GitHub Releases 蹲守最新进展，或者点 Star 第一时间收到通知。
+                  {t.download.emptyBody}
                 </p>
               </div>
               <a
@@ -181,7 +183,7 @@ export default function Download() {
                 rel="noreferrer"
                 className="btn-pill btn-pill--pink shrink-0 md:ml-auto"
               >
-                去 Releases 看看 ↗
+                {t.download.emptyLink}
               </a>
             </div>
           </Reveal>

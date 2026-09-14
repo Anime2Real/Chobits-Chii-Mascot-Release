@@ -7,6 +7,7 @@ import Download from "./sections/Download";
 import InstallTips from "./sections/InstallTips";
 import Footer from "./sections/Footer";
 import ScallopEdge from "./components/ScallopEdge";
+import { LangProvider } from "./i18n";
 
 function Divider({ from, to }: { from: string; to: string }) {
   return (
@@ -18,23 +19,25 @@ function Divider({ from, to }: { from: string; to: string }) {
 
 export default function App() {
   return (
-    <div className="min-h-screen">
-      <Nav />
-      <main>
-        <Hero />
-        <Divider from="var(--cream)" to="var(--pink)" />
-        <Marquee />
-        <Divider from="var(--pink)" to="var(--blush)" />
-        <Features />
-        <Divider from="var(--mint)" to="var(--blue-soft)" />
-        <Family />
-        <Divider from="var(--blue-soft)" to="var(--peach)" />
-        <Download />
-        <Divider from="var(--peach)" to="var(--sage)" />
-        <InstallTips />
-        <Divider from="var(--sage)" to="var(--ink-deep)" />
-      </main>
-      <Footer />
-    </div>
+    <LangProvider>
+      <div className="min-h-screen">
+        <Nav />
+        <main>
+          <Hero />
+          <Divider from="var(--cream)" to="var(--pink)" />
+          <Marquee />
+          <Divider from="var(--pink)" to="var(--blush)" />
+          <Features />
+          <Divider from="var(--mint)" to="var(--blue-soft)" />
+          <Family />
+          <Divider from="var(--blue-soft)" to="var(--peach)" />
+          <Download />
+          <Divider from="var(--peach)" to="var(--sage)" />
+          <InstallTips />
+          <Divider from="var(--sage)" to="var(--ink-deep)" />
+        </main>
+        <Footer />
+      </div>
+    </LangProvider>
   );
 }
