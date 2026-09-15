@@ -305,6 +305,26 @@ body {
   transform-origin: center;
 }
 
+@keyframes note-float {
+  0% {
+    transform: translateY(0) scale(0.7) rotate(0deg);
+    opacity: 0;
+  }
+  20% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-26px) scale(1.05) rotate(-14deg);
+    opacity: 0;
+  }
+}
+.note-float {
+  animation: note-float 2s ease-out infinite;
+}
+.note-float--late {
+  animation-delay: 1s;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .float-y,
   .wiggle,
@@ -313,6 +333,7 @@ body {
   .spin-slow,
   .bob,
   .heartbeat,
+  .note-float,
   .marquee__track {
     animation: none;
   }

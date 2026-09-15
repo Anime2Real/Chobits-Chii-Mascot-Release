@@ -7,6 +7,7 @@ import Download from "./sections/Download";
 import InstallTips from "./sections/InstallTips";
 import Footer from "./sections/Footer";
 import ScallopEdge from "./components/ScallopEdge";
+import MusicPlayer from "./components/MusicPlayer";
 import { LangProvider } from "./i18n";
 
 function Divider({ from, to }: { from: string; to: string }) {
@@ -38,6 +39,7 @@ export default function App() {
         </main>
         <Footer />
       </div>
+      <MusicPlayer />
     </LangProvider>
   );
 }
