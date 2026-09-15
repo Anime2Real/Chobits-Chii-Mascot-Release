@@ -18,7 +18,35 @@ export default function MusicPlayer() {
     audio.preload = "none";
     audio.addEventListener("ended", () => setPlaying(false));
     audioRef.current = audio;
+
+    // Browsers block autoplay with sound until the user interacts with the
+    // page; try immediately, then retry once on the first interaction.
+    let started = false;
+    const tryPlay = () => {
+      if (started) return;
+      setBusy(true);
+      audio
+        .play()
+        .then(() => {
+          started = true;
+          setPlaying(true);
+        })
+        .catch(() => setPlaying(false))
+        .finally(() => setBusy(false));
+    };
+
+    tryPlay();
+    const onFirstInteraction = () => {
+      tryPlay();
+      window.removeEventListener("pointerdown", onFirstInteraction);
+      window.removeEventListener("keydown", onFirstInteraction);
+    };
+    window.addEventListener("pointerdown", onFirstInteraction);
+    window.addEventListener("keydown", onFirstInteraction);
+
     return () => {
+      window.removeEventListener("pointerdown", onFirstInteraction);
+      window.removeEventListener("keydown", onFirstInteraction);
       audio.pause();
       audioRef.current = null;
     };
