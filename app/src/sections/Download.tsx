@@ -37,6 +37,17 @@ function formatSize(bytes: number) {
   return `${(bytes / 1024 / 1024).toFixed(1)} MB`;
 }
 
+function shortLabel(name: string) {
+  const n = name.toLowerCase();
+  if (n.endsWith(".appimage")) return "AppImage";
+  if (n.endsWith(".deb")) return "deb";
+  if (n.endsWith(".rpm")) return "rpm";
+  if (n.endsWith(".dmg")) return "DMG";
+  if (n.endsWith(".exe")) return "EXE";
+  if (n.endsWith(".msi")) return "MSI";
+  return name;
+}
+
 export default function Download() {
   const { t } = useLang();
   const [release, setRelease] = useState<ReleaseInfo | null>(null);
@@ -72,7 +83,8 @@ export default function Download() {
     };
   }, []);
 
-  const assetFor = (key: PlatformKey) => release?.assets.find((a) => classify(a.name) === key);
+  const assetsFor = (key: PlatformKey) =>
+    release?.assets.filter((a) => classify(a.name) === key) ?? [];
 
   const platforms: {
     key: PlatformKey;
@@ -82,7 +94,7 @@ export default function Download() {
   }[] = [
     {
       key: "macos-arm",
-      label: "macOS",
+      label: t.download.cards[0].label,
       sub: t.download.cards[0].sub,
       icon: (
         <svg viewBox="0 0 24 24" className="h-8 w-8" fill="currentColor" aria-hidden>
@@ -92,7 +104,7 @@ export default function Download() {
     },
     {
       key: "macos-intel",
-      label: "macOS",
+      label: t.download.cards[1].label,
       sub: t.download.cards[1].sub,
       icon: (
         <svg viewBox="0 0 24 24" className="h-8 w-8" fill="currentColor" aria-hidden>
@@ -102,7 +114,7 @@ export default function Download() {
     },
     {
       key: "windows",
-      label: "Windows",
+      label: t.download.cards[2].label,
       sub: t.download.cards[2].sub,
       icon: (
         <svg viewBox="0 0 24 24" className="h-8 w-8" fill="currentColor" aria-hidden>
@@ -112,7 +124,7 @@ export default function Download() {
     },
     {
       key: "linux",
-      label: "Linux",
+      label: t.download.cards[3].label,
       sub: t.download.cards[3].sub,
       icon: (
         <svg viewBox="0 0 24 24" className="h-8 w-8" fill="currentColor" aria-hidden>
@@ -140,7 +152,7 @@ export default function Download() {
 
         <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {platforms.map((p, i) => {
-            const asset = assetFor(p.key);
+            const assets = assetsFor(p.key);
             return (
               <Reveal key={p.key} delay={i * 110}>
                 <div className="card-line hover-lift flex h-full flex-col rounded-[24px] bg-white p-7 text-center">
@@ -148,15 +160,24 @@ export default function Download() {
                     {p.icon}
                   </div>
                   <h3 className="font-display mt-4 text-2xl tracking-wide">{p.label}</h3>
-                  <p className="mt-1 text-sm font-bold text-[var(--ink-soft)]">{p.sub}</p>
+                  {p.sub && (
+                    <p className="mt-1 text-sm font-bold text-[var(--ink-soft)]">{p.sub}</p>
+                  )}
 
-                  <div className="mt-auto pt-6">
+                  <div className="mt-auto flex flex-col gap-2 pt-6">
                     {state === "loading" ? (
                       <span className="btn-pill w-full justify-center opacity-60">{t.download.loading}</span>
-                    ) : state === "ready" && asset ? (
-                      <a href={asset.url} className="btn-pill btn-pill--dark w-full justify-center">
-                        ↓ {t.download.downloadBtn} · {formatSize(asset.size)}
-                      </a>
+                    ) : state === "ready" && assets.length > 0 ? (
+                      assets.map((asset) => (
+                        <a
+                          key={asset.name}
+                          href={asset.url}
+                          aria-label={`${t.download.downloadBtn} ${asset.name} · ${formatSize(asset.size)}`}
+                          className="btn-pill btn-pill--dark w-full justify-center"
+                        >
+                          ↓ {shortLabel(asset.name)} · {formatSize(asset.size)}
+                        </a>
+                      ))
                     ) : (
                       <span className="btn-pill w-full justify-center opacity-60">{t.download.preparing}</span>
                     )}

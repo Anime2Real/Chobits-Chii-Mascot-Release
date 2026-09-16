@@ -19,9 +19,9 @@ Chobits デスクトップマスコットの公開リリースチャンネルで
 
 | プラットフォーム | ファイル |
 |---|---|
-| macOS | `Chobits_<version>_mac_arm64.dmg`（Apple Silicon）/ `Chobits_<version>_mac_x64.dmg`（Intel） |
-| Windows | `Chobits_<version>_win_x64.exe`（NSIS インストーラー） |
-| Linux | `Chobits_<version>_linux_x64.AppImage` / `.deb` |
+| macOS | `Chobits_<version>_darwin_arm64.dmg`（Apple Silicon）/ `Chobits_<version>_darwin_x64.dmg`（Intel） |
+| Windows | `Chobits_<version>_win32_x64.exe`（NSIS インストーラー） |
+| Linux | `Chobits_<version>_linux_x86_64.AppImage` / `Chobits_<version>_linux_amd64.deb` |
 
 > macOS 版は Apple 公証済みです。Windows 版はまだコード署名を行っていないため、SmartScreen にブロックされた場合は「詳細情報 → 実行」を選択してください。
 

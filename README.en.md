@@ -19,9 +19,9 @@ The page automatically detects your platform and recommends the matching install
 
 | Platform | File |
 |---|---|
-| macOS | `Chobits_<version>_mac_arm64.dmg` (Apple Silicon) / `Chobits_<version>_mac_x64.dmg` (Intel) |
-| Windows | `Chobits_<version>_win_x64.exe` (NSIS installer) |
-| Linux | `Chobits_<version>_linux_x64.AppImage` / `.deb` |
+| macOS | `Chobits_<version>_darwin_arm64.dmg` (Apple Silicon) / `Chobits_<version>_darwin_x64.dmg` (Intel) |
+| Windows | `Chobits_<version>_win32_x64.exe` (NSIS installer) |
+| Linux | `Chobits_<version>_linux_x86_64.AppImage` / `Chobits_<version>_linux_amd64.deb` |
 
 > The macOS build is notarized by Apple. The Windows build is not code-signed yet — if SmartScreen blocks it, choose "More info → Run anyway".
 

@@ -19,9 +19,9 @@ Chobits 桌宠的公开发布渠道。本仓库承载 Release 产物（安装包
 
 | 平台 | 文件 |
 |---|---|
-| macOS | `Chobits_<version>_mac_arm64.dmg`（Apple Silicon）/ `Chobits_<version>_mac_x64.dmg`（Intel） |
-| Windows | `Chobits_<version>_win_x64.exe`（NSIS 安装包） |
-| Linux | `Chobits_<version>_linux_x64.AppImage` / `.deb` |
+| macOS | `Chobits_<version>_darwin_arm64.dmg`（Apple Silicon）/ `Chobits_<version>_darwin_x64.dmg`（Intel） |
+| Windows | `Chobits_<version>_win32_x64.exe`（NSIS 安装包） |
+| Linux | `Chobits_<version>_linux_x86_64.AppImage` / `Chobits_<version>_linux_amd64.deb` |
 
 > macOS 版本已经过 Apple 公证；Windows 版本暂未做代码签名，SmartScreen 拦截时请选择「更多信息 → 仍要运行」。
 
