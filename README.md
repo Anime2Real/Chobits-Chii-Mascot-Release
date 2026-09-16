@@ -23,19 +23,17 @@ Chobits 桌宠的公开发布渠道。本仓库承载 Release 产物（安装包
 | Windows | `Chobits_<version>_win32_x64.exe`（NSIS 安装包） |
 | Linux | `Chobits_<version>_linux_x86_64.AppImage` / `Chobits_<version>_linux_amd64.deb` |
 
-> macOS 版本已经过 Apple 公证；Windows 版本暂未做代码签名，SmartScreen 拦截时请选择「更多信息 → 仍要运行」。
+> macOS 版本已经过 Apple 公证；Windows 安装包已完成代码签名（Certum）。若 SmartScreen 仍提示「Windows 已保护你的电脑」，请选择「更多信息 → 仍要运行」（新证书积累信誉后提示会消失）。
 
 应用内置自动更新，安装后无需手动回到本页。
 
 ## 说明
 
-- 源码仓库为私有仓库，本仓库仅用于公开发布
+- 应用源码以 MIT 协议开源：[Chobits-Chii-Mascot](https://github.com/Anime2Real/Chobits-Chii-Mascot)；本仓库用于公开发布安装包与自动更新元数据，`app/` 发布页源码同属 MIT
 - 问题反馈请通过应用内渠道进行
 
-## 关于暂不开源
+## 许可口径
 
-Chobits-Chii-Mascot 的源码目前暂不开源。主要原因是为了确保项目软件的使用数据安全：在确认项目不存在重大风险漏洞之前，我们将保持源码私有，避免潜在安全问题被恶意利用。待项目完成充分的安全审查与验证后，我们会重新评估开源计划。
-
-## 许可
-
-本软件为专有免费软件（非开源），依据 [LICENSE](./LICENSE) 中的最终用户许可协议发布：可免费下载并用于个人非商业用途，禁止修改、逆向工程、再分发及未经授权的商用。
+- **源码**：应用与发布页源码以 [MIT 协议](https://github.com/Anime2Real/Chobits-Chii-Mascot/blob/main/LICENSE) 开源，可自由查看、修改与再分发
+- **二进制分发渠道**：本仓库 Releases 上的安装包与自动更新元数据依据 [LICENSE](./LICENSE) 中的最终用户许可协议（EULA）发布——免费用于个人非商业用途，限制对安装包的再分发与逆向；源码的 MIT 权利不延伸至这些二进制产物
+- **品牌素材**：Chobits 名称、Logo 与角色美术素材保留所有权利，商用需事先书面授权

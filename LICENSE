@@ -14,11 +14,17 @@ or use the Software.
    with any accompanying documentation, auto-update metadata, and updates
    or upgrades provided by the Licensor.
 
-   "Licensor" means the Anime2Real project and its contributors.
+   "Source Code" means the human-readable source code of the application,
+   published under the MIT License at
+   https://github.com/Anime2Real/Chobits-Chii-Mascot (including the release
+   page source code under `app/` in this repository, except for the Brand
+   Assets defined below).
 
-   "Content of this repository" means all source code, assets, and other
-   materials contained in this repository, including but not limited to the
-   release page source code under `app/`.
+   "Brand Assets" means the Chobits product name, logos, character artwork,
+   and other trademarks or trade dress of the Licensor, in either binary
+   or source form.
+
+   "Licensor" means the Anime2Real project and its contributors.
 
 2. GRANT OF LICENSE
 
@@ -32,25 +38,34 @@ or use the Software.
    limitation, you may NOT:
 
    a) copy, modify, adapt, translate, or create derivative works based on
-      the Software or the Content of this repository;
+      the Software (binary form);
    b) decompile, disassemble, reverse engineer, or otherwise attempt to
-      derive the source code of the Software;
+      derive the source code of the Software, except to the extent such
+      restriction is prohibited by applicable law;
    c) redistribute, sublicense, rent, lease, lend, sell, or otherwise
-      transfer or make available the Software or the Content of this
-      repository to any third party, whether commercially or not;
+      transfer or make available the binary builds of the Software or the
+      Brand Assets to any third party, whether commercially or not;
    d) remove, alter, or obscure any copyright, trademark, or other
       proprietary notices contained in the Software;
-   e) use the Software for any commercial purpose without the prior written
-      permission of the Licensor.
+   e) use the Software or the Brand Assets for any commercial purpose
+      without the prior written permission of the Licensor.
 
-4. SOURCE CODE AND REPOSITORY CONTENT
+   The restrictions in this section apply to the binary Software and the
+   Brand Assets only. They do not restrict any rights granted to you under
+   the MIT License with respect to the Source Code.
 
-   The Software is proprietary freeware, not open source software. The
-   source code of the Software is maintained in a private repository and
-   is not licensed hereunder. All Content of this repository is provided
-   for viewing only; no license is granted to use, copy, modify, or
-   redistribute it, except as permitted by GitHub's Terms of Service
-   (e.g., forking within GitHub).
+4. SOURCE CODE
+
+   The Source Code is open source and licensed under the MIT License.
+   You may use, copy, modify, merge, publish, and distribute the Source
+   Code under the terms of that license, which is incorporated here by
+   reference. Note that the MIT License governs the Source Code only: it
+   does not grant you any right to redistribute the binary builds
+   distributed through this repository's Releases, the auto-update
+   metadata, or the Brand Assets, which remain governed by this License.
+   If you build the application yourself from the Source Code, your build
+   is a derivative of the Source Code (governed by the MIT License), but
+   the Brand Assets remain subject to the restrictions in Section 3.
 
 5. AUTOMATIC UPDATES
 
@@ -60,10 +75,11 @@ or use the Software.
 
 6. INTELLECTUAL PROPERTY
 
-   The Software and the Content of this repository, including all
-   intellectual property rights therein, are and remain the exclusive
-   property of the Licensor. This License does not grant you any ownership
-   interest in the Software.
+   The Software and the Brand Assets, including all intellectual property
+   rights therein, are and remain the exclusive property of the Licensor.
+   This License does not grant you any ownership interest in the Software.
+   The Source Code is licensed under the MIT License as stated in
+   Section 4.
 
 7. NO WARRANTY
 

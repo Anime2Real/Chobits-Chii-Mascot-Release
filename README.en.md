@@ -23,19 +23,17 @@ The page automatically detects your platform and recommends the matching install
 | Windows | `Chobits_<version>_win32_x64.exe` (NSIS installer) |
 | Linux | `Chobits_<version>_linux_x86_64.AppImage` / `Chobits_<version>_linux_amd64.deb` |
 
-> The macOS build is notarized by Apple. The Windows build is not code-signed yet — if SmartScreen blocks it, choose "More info → Run anyway".
+> The macOS build is notarized by Apple. The Windows installer is code-signed (Certum). If SmartScreen still shows "Windows protected your PC", choose "More info → Run anyway" (the prompt disappears as the new certificate builds reputation).
 
 The app has built-in auto-updates, so you won't need to return to this page after installation.
 
 ## Notes
 
-- The source code repository is private; this repository is for public releases only
+- The application source code is open source under the MIT License: [Chobits-Chii-Mascot](https://github.com/Anime2Real/Chobits-Chii-Mascot). This repository hosts the release artifacts and auto-update metadata; the release page source under `app/` is MIT-licensed as well
 - Please report issues through the in-app feedback channel
 
-## Why the source code is not open yet
+## Licensing
 
-The source code of Chobits-Chii-Mascot is currently not open source. The main reason is to ensure the security of the software's usage data: until we have confirmed that the project has no major risk vulnerabilities, we will keep the source code private to prevent potential security issues from being exploited. Once the project has passed thorough security review and verification, we will re-evaluate our open-source plans.
-
-## License
-
-This software is proprietary freeware (not open source), released under the End User License Agreement in [LICENSE](./LICENSE). It is free to download and use for personal, non-commercial purposes. Modification, reverse engineering, redistribution, and unauthorized commercial use are prohibited.
+- **Source code**: the application and release page sources are open source under the [MIT License](https://github.com/Anime2Real/Chobits-Chii-Mascot/blob/main/LICENSE) — free to view, modify, and redistribute
+- **Binary distribution channel**: the installers in this repository's Releases and the auto-update metadata are distributed under the End User License Agreement in [LICENSE](./LICENSE) — free for personal, non-commercial use, with redistribution and reverse engineering of the binaries restricted; MIT rights to the source code do not extend to these binary builds
+- **Brand assets**: the Chobits name, logos, and character artwork are all rights reserved; commercial use requires prior written permission
