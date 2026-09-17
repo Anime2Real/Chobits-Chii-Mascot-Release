@@ -94,7 +94,7 @@ const zh = {
       { label: "macOS Apple Silicon", sub: "" },
       { label: "macOS Intel", sub: "" },
       { label: "Windows", sub: "10 / 11" },
-      { label: "Linux", sub: "AppImage / deb" },
+      { label: "Linux", sub: "" },
     ],
   },
   music: {
@@ -228,7 +228,7 @@ const ja: Dict = {
       { label: "macOS Apple Silicon", sub: "" },
       { label: "macOS Intel", sub: "" },
       { label: "Windows", sub: "10 / 11" },
-      { label: "Linux", sub: "AppImage / deb" },
+      { label: "Linux", sub: "" },
     ],
   },
   music: {
@@ -360,7 +360,7 @@ const en: Dict = {
       { label: "macOS Apple Silicon", sub: "" },
       { label: "macOS Intel", sub: "" },
       { label: "Windows", sub: "10 / 11" },
-      { label: "Linux", sub: "AppImage / deb" },
+      { label: "Linux", sub: "" },
     ],
   },
   music: {
