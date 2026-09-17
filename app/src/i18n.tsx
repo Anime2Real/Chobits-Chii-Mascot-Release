@@ -119,9 +119,9 @@ const zh = {
       {
         no: "ii",
         title: "Windows",
-        pre: "安装包暂未代码签名，SmartScreen 提示时选择",
+        pre: "安装包已完成代码签名（Certum 个人证书）。SmartScreen 仍提示时选择",
         em: "更多信息 → 仍要运行",
-        post: "；浏览器警告时选择「保留」。",
+        post: "（个人证书信誉积累中，属正常现象）。",
       },
       {
         no: "iii",
@@ -253,9 +253,9 @@ const ja: Dict = {
       {
         no: "ii",
         title: "Windows",
-        pre: "インストーラーはまだコード署名されていません。SmartScreen の表示が出たら",
+        pre: "インストーラーはコード署名済みです（Certum 個人証明書）。SmartScreen が表示されたら",
         em: "詳細情報 → 実行",
-        post: "を選択。ブラウザの警告では「保持」を選んでください。",
+        post: "を選択（個人証明書の評価蓄積中の正常な表示です）。",
       },
       {
         no: "iii",
@@ -385,9 +385,9 @@ const en: Dict = {
       {
         no: "ii",
         title: "Windows",
-        pre: "The installer isn't code-signed yet. When SmartScreen appears, choose",
+        pre: "The installer is code-signed (Certum individual certificate). If SmartScreen still appears, choose",
         em: "More info → Run anyway",
-        post: "; if your browser warns about the file, choose \"Keep\".",
+        post: "(normal while an individual certificate builds reputation).",
       },
       {
         no: "iii",

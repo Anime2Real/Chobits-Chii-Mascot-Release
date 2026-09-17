@@ -23,6 +23,9 @@ type PlatformKey = "macos-arm" | "macos-intel" | "windows" | "linux";
 
 function classify(assetName: string): PlatformKey | null {
   const n = assetName.toLowerCase();
+  // electron-builder 的伴随产物（增量更新块映射、自动更新元数据）不是安装包，不显示，
+  // 否则每个平台会多出一串 .blockmap 长文件名下载按钮
+  if (n.endsWith(".blockmap") || n.endsWith(".yml") || n.endsWith(".yaml")) return null;
   if (n.endsWith(".dmg") || n.includes("mac") || n.includes("darwin")) {
     if (n.includes("arm") || n.includes("aarch64") || n.includes("silicon")) return "macos-arm";
     return "macos-intel";
