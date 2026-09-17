@@ -91,8 +91,8 @@ const zh = {
       "正式包还没有放出。可以先去 GitHub Releases 蹲守最新进展，或者点 Star 第一时间收到通知。",
     emptyLink: "去 Releases 看看 ↗",
     cards: [
-      { label: "macOS Apple Silicon", sub: "" },
-      { label: "macOS Intel", sub: "" },
+      { label: "macOS", sub: "Apple Silicon" },
+      { label: "macOS", sub: "Intel" },
       { label: "Windows", sub: "10 / 11" },
       { label: "Linux", sub: "Ubuntu" },
     ],
@@ -225,8 +225,8 @@ const ja: Dict = {
       "正式版パッケージはまだ公開されていません。GitHub Releases で最新情報をチェックするか、Star を押して通知を受け取りましょう。",
     emptyLink: "Releases を見る ↗",
     cards: [
-      { label: "macOS Apple Silicon", sub: "" },
-      { label: "macOS Intel", sub: "" },
+      { label: "macOS", sub: "Apple Silicon" },
+      { label: "macOS", sub: "Intel" },
       { label: "Windows", sub: "10 / 11" },
       { label: "Linux", sub: "Ubuntu" },
     ],
@@ -357,8 +357,8 @@ const en: Dict = {
       "The packages aren't available right now. Check GitHub Releases for the latest updates, or star the repo to get notified first.",
     emptyLink: "Go to Releases ↗",
     cards: [
-      { label: "macOS Apple Silicon", sub: "" },
-      { label: "macOS Intel", sub: "" },
+      { label: "macOS", sub: "Apple Silicon" },
+      { label: "macOS", sub: "Intel" },
       { label: "Windows", sub: "10 / 11" },
       { label: "Linux", sub: "Ubuntu" },
     ],
