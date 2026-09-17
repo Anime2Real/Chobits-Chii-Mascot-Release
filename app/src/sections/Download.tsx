@@ -52,7 +52,7 @@ function formatSize(bytes: number) {
 function shortLabel(name: string) {
   const n = name.toLowerCase();
   if (n.endsWith(".appimage")) return "AppImage";
-  if (n.endsWith(".deb")) return "deb";
+  if (n.endsWith(".deb")) return "DEB";
   if (n.endsWith(".rpm")) return "rpm";
   if (n.endsWith(".dmg")) return "DMG";
   if (n.endsWith(".exe")) return "EXE";
