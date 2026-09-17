@@ -1,5 +1,5 @@
 <div align="center">
-	<img src="app/src/assets/chii-hero.webp" alt="Chii" height="140" />
+	<img src="app/src/assets/chii-logo.webp" alt="Chii" width="120" height="120" />
 	<h1>Chobits</h1>
 	<p><b>Chii~</b> the release channel that brings Chii to your desktop</p>
 	<p>The public release channel for the Chobits desktop mascot. This repository hosts the release artifacts (installers and auto-update metadata); the application source code lives in a private repository. `app/` contains the source code of the release page, which is automatically built by GitHub Actions and deployed to GitHub Pages.</p>

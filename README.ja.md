@@ -1,5 +1,5 @@
 <div align="center">
-	<img src="app/src/assets/chii-hero.webp" alt="Chii" height="140" />
+	<img src="app/src/assets/chii-logo.webp" alt="Chii" width="120" height="120" />
 	<h1>Chobits</h1>
 	<p><b>ちぃ～</b> ちぃをお持ち帰りできる公開リリースチャンネル</p>
 	<p>Chobits デスクトップマスコットの公開リリースチャンネルです。本リポジトリは Release 成果物（インストーラーと自動更新メタデータ）をホストしており、アプリのソースコードはプライベートリポジトリにあります。`app/` はリリースページのソースコードで、GitHub Actions により自動ビルドされ、GitHub Pages にデプロイされます。</p>
