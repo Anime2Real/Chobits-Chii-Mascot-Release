@@ -21,6 +21,15 @@ interface ReleaseInfo {
 
 type PlatformKey = "macos-arm" | "macos-intel" | "windows" | "linux";
 
+// 每平台只展示首选安装包格式：macOS 只留 dmg、Linux 只留 deb，
+// zip/AppImage 仅作备用分发，避免下载卡片堆砌平行链接
+const PLATFORM_EXT: Record<PlatformKey, string[]> = {
+  "macos-arm": [".dmg"],
+  "macos-intel": [".dmg"],
+  windows: [".exe", ".msi"],
+  linux: [".deb"],
+};
+
 function classify(assetName: string): PlatformKey | null {
   const n = assetName.toLowerCase();
   // electron-builder 的伴随产物（增量更新块映射、自动更新元数据）不是安装包，不显示，
@@ -86,8 +95,14 @@ export default function Download() {
     };
   }, []);
 
-  const assetsFor = (key: PlatformKey) =>
-    release?.assets.filter((a) => classify(a.name) === key) ?? [];
+  const assetsFor = (key: PlatformKey) => {
+    const all = release?.assets.filter((a) => classify(a.name) === key) ?? [];
+    const preferred = all.filter((a) =>
+      PLATFORM_EXT[key].some((ext) => a.name.toLowerCase().endsWith(ext))
+    );
+    // 首选格式缺席时回退到平台全部资产，避免卡片意外空白
+    return preferred.length > 0 ? preferred : all;
+  };
 
   const platforms: {
     key: PlatformKey;
