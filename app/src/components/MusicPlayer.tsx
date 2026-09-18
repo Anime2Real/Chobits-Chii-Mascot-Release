@@ -48,7 +48,7 @@ export default function MusicPlayer() {
   useEffect(() => {
     const audio = new Audio(`${import.meta.env.BASE_URL}chii-bgm.mp3`);
     audio.preload = "auto";
-    audio.loop = true;
+    audio.addEventListener("ended", () => setPlaying(false));
     audioRef.current = audio;
 
     // 自动播放：进页即尝试。浏览器自动播放策略（Chrome/Edge/Safari 对无
