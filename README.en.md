@@ -2,7 +2,7 @@
 	<img src="app/src/assets/chii-logo.webp" alt="Chii" width="120" height="120" />
 	<h1>Chobits</h1>
 	<p><b>Chii~</b> the release channel that brings Chii to your desktop</p>
-	<p>The public release channel for the Chobits desktop mascot. This repository hosts the release artifacts (installers and auto-update metadata); the application source code lives in a private repository. `app/` contains the source code of the release page, which is automatically built by GitHub Actions and deployed to GitHub Pages.</p>
+	<p>The public release channel for the Chobits desktop mascot. This repository hosts the release artifacts (installers and auto-update metadata). <code>app/</code> contains the source code of the release page, which is automatically built by GitHub Actions and deployed to GitHub Pages. For server and data security reasons, the Mascot client source code is not open-sourced at this time. We will consider open-sourcing it after completing a thorough security review.</p>
 	<p>
 		<a href="./README.md">简体中文</a> ｜ <a href="./README.ja.md">日本語</a> ｜ <a href="./README.en.md">English</a>
 	</p>
@@ -14,7 +14,7 @@
 	</p>
 </div>
 
-> 💖 If Chii has settled onto your desktop, consider giving the [source repo](https://github.com/Anime2Real/Chobits-Chii-Mascot) a Star on GitHub — your support helps more people discover Chii!
+> 💖 If Chii has settled onto your desktop, consider starring this repository and watching [Releases](https://github.com/Anime2Real/Chobits-Chii-Mascot-Release/releases) — your support helps more people discover Chii!
 
 ## ⬇️ Download
 
@@ -38,11 +38,11 @@ The app has built-in auto-updates, so you won't need to return to this page afte
 
 ## ℹ️ Notes
 
-- The application source code is open source under the MIT License: [Chobits-Chii-Mascot](https://github.com/Anime2Real/Chobits-Chii-Mascot). This repository hosts the release artifacts and auto-update metadata; the release page source under `app/` is MIT-licensed as well
+- For server and data security reasons, the Mascot client source code is not open-sourced at this time. We will consider open-sourcing it after completing a thorough security review. This repository hosts the release artifacts and auto-update metadata
 - Please report issues through the in-app feedback channel
 
 ## 📄 Licensing
 
-- **Source code**: the application and release page sources are open source under the [MIT License](https://github.com/Anime2Real/Chobits-Chii-Mascot/blob/main/LICENSE) — free to view, modify, and redistribute
-- **Binary distribution channel**: the installers in this repository's Releases and the auto-update metadata are distributed under the End User License Agreement in [LICENSE](./LICENSE) — free for personal, non-commercial use, with redistribution and reverse engineering of the binaries restricted; MIT rights to the source code do not extend to these binary builds
+- **Source code**: for server and data security reasons, the Mascot client source code is not open-sourced at this time. We will consider open-sourcing it after completing a thorough security review; until then, the application and release page sources are not released under any open-source license and all rights are reserved
+- **Binary distribution channel**: the installers in this repository's Releases and the auto-update metadata are distributed under the End User License Agreement in [LICENSE](./LICENSE) — free for personal, non-commercial use, with redistribution and reverse engineering of the binaries restricted
 - **Brand assets**: the Chobits name, logos, and character artwork are all rights reserved; commercial use requires prior written permission

@@ -14,11 +14,11 @@ or use the Software.
    with any accompanying documentation, auto-update metadata, and updates
    or upgrades provided by the Licensor.
 
-   "Source Code" means the human-readable source code of the application,
-   published under the MIT License at
-   https://github.com/Anime2Real/Chobits-Chii-Mascot (including the release
-   page source code under `app/` in this repository, except for the Brand
-   Assets defined below).
+   "Source Code" means the human-readable source code of the Software
+   (including the release page source code under `app/` in this repository,
+   except for the Brand Assets defined below). The Source Code is currently
+   not publicly available and all rights therein are reserved; it may be
+   open-sourced following a complete security assessment.
 
    "Brand Assets" means the Chobits product name, logos, character artwork,
    and other trademarks or trade dress of the Licensor, in either binary
@@ -50,22 +50,22 @@ or use the Software.
    e) use the Software or the Brand Assets for any commercial purpose
       without the prior written permission of the Licensor.
 
-   The restrictions in this section apply to the binary Software and the
-   Brand Assets only. They do not restrict any rights granted to you under
-   the MIT License with respect to the Source Code.
+   The restrictions in this section apply to the binary Software, the
+   Source Code, and the Brand Assets. No rights to the Source Code are
+   granted to you under this License; all rights in the Source Code are
+   reserved, as stated in Section 1.
 
 4. SOURCE CODE
 
-   The Source Code is open source and licensed under the MIT License.
-   You may use, copy, modify, merge, publish, and distribute the Source
-   Code under the terms of that license, which is incorporated here by
-   reference. Note that the MIT License governs the Source Code only: it
-   does not grant you any right to redistribute the binary builds
-   distributed through this repository's Releases, the auto-update
-   metadata, or the Brand Assets, which remain governed by this License.
-   If you build the application yourself from the Source Code, your build
-   is a derivative of the Source Code (governed by the MIT License), but
-   the Brand Assets remain subject to the restrictions in Section 3.
+   The Source Code is currently not publicly available, and all rights
+   therein are reserved by the Licensor. The Licensor may choose to
+   open-source the Source Code, in whole or in part, following a complete
+   security assessment. Unless and until the Source Code is expressly
+   released under a separate open-source license, this License grants you
+   no rights to the Source Code, and nothing in this License shall be
+   construed as a promise or commitment to open-source the Source Code.
+   This License governs the binary builds distributed through this
+   repository's Releases, the auto-update metadata, and the Brand Assets.
 
 5. AUTOMATIC UPDATES
 
@@ -75,11 +75,11 @@ or use the Software.
 
 6. INTELLECTUAL PROPERTY
 
-   The Software and the Brand Assets, including all intellectual property
-   rights therein, are and remain the exclusive property of the Licensor.
-   This License does not grant you any ownership interest in the Software.
-   The Source Code is licensed under the MIT License as stated in
-   Section 4.
+   The Software, the Source Code, and the Brand Assets, including all
+   intellectual property rights therein, are and remain the exclusive
+   property of the Licensor. This License does not grant you any ownership
+   interest in the Software. The Source Code is not publicly available, and
+   all rights therein are reserved, as stated in Section 4.
 
 7. NO WARRANTY
 

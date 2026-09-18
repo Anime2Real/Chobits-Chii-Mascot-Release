@@ -23,7 +23,7 @@ const zh = {
     intro3: "偶尔卖个萌，偶尔说一句「ちぃ？」。",
     download: "立即下载",
     github: "在 GitHub 上看看 ↗",
-    platforms: "macOS · Windows · Linux · 免费开源",
+    platforms: "macOS · Windows · Linux · 免费使用",
     heroAlt: "女仆装的ちぃ（Chii）—— Chobits 中的人形电脑",
   },
   marquee: {
@@ -34,7 +34,7 @@ const zh = {
       "DESKTOP MASCOT",
       "自动更新",
       "ちょうびっツ",
-      "免费开源",
+      "免费使用",
       "CHOBITS",
     ],
   },
@@ -136,7 +136,7 @@ const zh = {
     github: "GitHub 仓库",
     releases: "Releases 下载页",
     copyright:
-      "非官方粉丝作品 · Chobits © CLAMP・講談社／ちょびっツ製作委員会 · 代码以开源协议发布",
+      "非官方粉丝作品 · Chobits © CLAMP・講談社／ちょびっツ製作委員会 · 客户端源码暂不开源",
   },
 };
 
@@ -157,7 +157,7 @@ const ja: Dict = {
     intro3: "時々甘えて、時々「ちぃ？」とつぶやきます。",
     download: "ダウンロード",
     github: "GitHub で見る ↗",
-    platforms: "macOS · Windows · Linux · 無料・オープンソース",
+    platforms: "macOS · Windows · Linux · 無料で使用可能",
     heroAlt: "メイド服のちぃ（Chii）—— Chobits の人形パソコン",
   },
   marquee: {
@@ -168,7 +168,7 @@ const ja: Dict = {
       "DESKTOP MASCOT",
       "自動更新",
       "ちょうびっツ",
-      "無料・オープンソース",
+      "無料で使用可能",
       "CHOBITS",
     ],
   },
@@ -270,7 +270,7 @@ const ja: Dict = {
     github: "GitHub リポジトリ",
     releases: "Releases ページ",
     copyright:
-      "非公式ファン作品 · Chobits © CLAMP・講談社／ちょびっツ製作委員会 · コードはオープンソースライセンスで公開",
+      "非公式ファン作品 · Chobits © CLAMP・講談社／ちょびっツ製作委員会 · クライアントのソースコードは現時点では非公開",
   },
 };
 
@@ -289,7 +289,7 @@ const en: Dict = {
     intro3: "Sometimes she acts cute, sometimes she simply says \"chii?\".",
     download: "Download",
     github: "View on GitHub ↗",
-    platforms: "macOS · Windows · Linux · Free & Open Source",
+    platforms: "macOS · Windows · Linux · Free to Use",
     heroAlt: "Chii in a maid outfit — the Persocom from Chobits",
   },
   marquee: {
@@ -300,7 +300,7 @@ const en: Dict = {
       "DESKTOP MASCOT",
       "Auto Update",
       "ちょうびっツ",
-      "Free & Open Source",
+      "Free to Use",
       "CHOBITS",
     ],
   },
@@ -402,7 +402,7 @@ const en: Dict = {
     github: "GitHub Repo",
     releases: "All Releases",
     copyright:
-      "Unofficial fan work · Chobits © CLAMP・Kodansha / Chobits Production Committee · Code released under an open-source license",
+      "Unofficial fan work · Chobits © CLAMP・Kodansha / Chobits Production Committee · Client source code not open-sourced at this time",
   },
 };
 
