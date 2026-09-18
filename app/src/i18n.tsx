@@ -100,10 +100,6 @@ const zh = {
   music: {
     play: "播放音乐",
     pause: "暂停音乐",
-    askTitle: "播放背景音乐？",
-    askBody: "打开后，ちぃ 会一边哼着歌一边陪你。",
-    askYes: "播放",
-    askNo: "先不要",
   },
   install: {
     kicker: "BEFORE YOU START",
@@ -234,10 +230,6 @@ const ja: Dict = {
   music: {
     play: "音楽を再生",
     pause: "音楽を止める",
-    askTitle: "BGM を再生しますか？",
-    askBody: "オンにすると、ちぃ が歌を口ずさみながらそばにいてくれます。",
-    askYes: "再生する",
-    askNo: "今はしない",
   },
   install: {
     kicker: "BEFORE YOU START",
@@ -366,10 +358,6 @@ const en: Dict = {
   music: {
     play: "Play music",
     pause: "Pause music",
-    askTitle: "Play the background music?",
-    askBody: "Turn it on and Chii will hum along while keeping you company.",
-    askYes: "Play",
-    askNo: "Not now",
   },
   install: {
     kicker: "BEFORE YOU START",
