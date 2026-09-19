@@ -74,14 +74,6 @@ export default function Hero() {
               <a href="#download" className="btn-pill btn-pill--dark text-base">
                 <span className="bob inline-block">↓</span> {t.hero.download}
               </a>
-              <a
-                href="https://github.com/Anime2Real/Chobits-Chii-Mascot-Release"
-                target="_blank"
-                rel="noreferrer"
-                className="btn-pill btn-pill--pink text-base"
-              >
-                {t.hero.github}
-              </a>
             </div>
           </Reveal>
 
