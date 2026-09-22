@@ -82,6 +82,10 @@ const zh = {
     kicker: "DOWNLOAD",
     title: "选择你的平台",
     released: "发布于",
+    mirror: "国内加速",
+    mirrorOn: "镜像加速中",
+    mirrorHint:
+      "下载将经第三方公共镜像中转，速度更快；安装包数字签名不受影响，可正常校验。",
     loading: "寻找ちぃ中…",
     preparing: "准备中…",
     downloadBtn: "下载",
@@ -211,6 +215,10 @@ const ja: Dict = {
     kicker: "DOWNLOAD",
     title: "プラットフォームを選ぶ",
     released: "リリース日",
+    mirror: "中国大陸向け加速",
+    mirrorOn: "ミラー加速中",
+    mirrorHint:
+      "ダウンロードは第三者の公開ミラー経由で行われますが、パッケージの署名検証はそのまま有効です。",
     loading: "ちぃを探しています…",
     preparing: "準備中…",
     downloadBtn: "ダウンロード",
@@ -338,6 +346,10 @@ const en: Dict = {
     kicker: "DOWNLOAD",
     title: "Pick Your Platform",
     released: "Released",
+    mirror: "China mirror",
+    mirrorOn: "Mirror accelerated",
+    mirrorHint:
+      "Downloads are routed through a public third-party mirror for faster access in some regions; package signatures remain verifiable.",
     loading: "Looking for Chii…",
     preparing: "Preparing…",
     downloadBtn: "Download",
