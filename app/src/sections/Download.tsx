@@ -7,11 +7,6 @@ const REPO = "Anime2Real/Chobits-Chii-Mascot-Release";
 const RELEASES_URL = `https://github.com/${REPO}/releases`;
 const API_URL = `https://api.github.com/repos/${REPO}/releases/latest`;
 
-// 国内加速：给 GitHub 链接套公共代理前缀，缓解部分地区直连慢/断的问题；
-// 服务失效时只需更换这一个常量
-const MIRROR_PREFIX = "https://ghproxy.net/";
-const MIRROR_STORAGE_KEY = "chii-download-mirror";
-
 interface Asset {
   name: string;
   url: string;
@@ -69,22 +64,10 @@ export default function Download() {
   const { t } = useLang();
   const [release, setRelease] = useState<ReleaseInfo | null>(null);
   const [state, setState] = useState<"loading" | "ready" | "empty">("loading");
-  const [mirror, setMirror] = useState(
-    () => localStorage.getItem(MIRROR_STORAGE_KEY) === "1"
-  );
-
-  const toggleMirror = () => {
-    setMirror((prev) => {
-      const next = !prev;
-      localStorage.setItem(MIRROR_STORAGE_KEY, next ? "1" : "0");
-      return next;
-    });
-  };
 
   useEffect(() => {
     let cancelled = false;
-    // 开启镜像后连 API 也走代理：部分地区直连 api.github.com 不稳定，切换时自动重试
-    fetch(mirror ? MIRROR_PREFIX + API_URL : API_URL)
+    fetch(API_URL)
       .then((r) => (r.ok ? r.json() : Promise.reject(r.status)))
       .then((d) => {
         if (cancelled) return;
@@ -110,7 +93,7 @@ export default function Download() {
     return () => {
       cancelled = true;
     };
-  }, [mirror]);
+  }, []);
 
   const assetsFor = (key: PlatformKey) => {
     const all = release?.assets.filter((a) => classify(a.name) === key) ?? [];
@@ -183,27 +166,6 @@ export default function Download() {
               {t.download.released} {release.date}
             </p>
           )}
-
-          <div className="mt-5 flex flex-col items-center gap-2">
-            <button
-              type="button"
-              onClick={toggleMirror}
-              aria-pressed={mirror}
-              className="card-line inline-flex items-center gap-2 rounded-full bg-[var(--cream)] px-4 py-2 text-xs font-bold backdrop-blur transition-transform duration-300 hover:-rotate-2"
-            >
-              <span
-                className={`h-2 w-2 rounded-full ${
-                  mirror ? "heartbeat bg-[var(--pink-deep)]" : "bg-[var(--line)]"
-                }`}
-              />
-              {mirror ? t.download.mirrorOn : t.download.mirror}
-            </button>
-            {mirror && (
-              <p className="max-w-md text-xs leading-relaxed text-[var(--ink-soft)]">
-                {t.download.mirrorHint}
-              </p>
-            )}
-          </div>
         </Reveal>
 
         <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
@@ -227,16 +189,11 @@ export default function Download() {
                       assets.map((asset) => (
                         <a
                           key={asset.name}
-                          href={mirror ? MIRROR_PREFIX + asset.url : asset.url}
+                          href={asset.url}
                           aria-label={`${t.download.downloadBtn} ${asset.name} · ${formatSize(asset.size)}`}
                           className="btn-pill btn-pill--dark w-full justify-center"
                         >
                           ↓ {shortLabel(asset.name)} · {formatSize(asset.size)}
-                          {mirror && (
-                            <span className="ml-1.5 rounded-full bg-[var(--pink)] px-1.5 text-[10px] font-bold">
-                              {t.download.mirror}
-                            </span>
-                          )}
                         </a>
                       ))
                     ) : (
