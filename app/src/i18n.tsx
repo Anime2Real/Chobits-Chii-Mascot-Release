@@ -1,3 +1,4 @@
+/* eslint-disable react-refresh/only-export-components -- 语言 Context、translations 与 useLang 集中于同一模块 */
 import {
   createContext,
   useContext,

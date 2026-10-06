@@ -64,17 +64,22 @@ export default function MusicPlayer() {
       void play();
     };
 
-    if (readConsent() !== "no") {
-      void play().then((started) => {
-        if (!started) {
-          window.addEventListener("pointerdown", onGesture);
-          window.addEventListener("keydown", onGesture);
-          window.addEventListener("touchstart", onGesture);
-        }
-      });
-    }
+    // 延迟到下一个宏任务再尝试自动播放，避免在 effect 中同步触发 setState
+    const autoplayTimer =
+      readConsent() === "no"
+        ? null
+        : window.setTimeout(() => {
+            void play().then((started) => {
+              if (!started) {
+                window.addEventListener("pointerdown", onGesture);
+                window.addEventListener("keydown", onGesture);
+                window.addEventListener("touchstart", onGesture);
+              }
+            });
+          }, 0);
 
     return () => {
+      if (autoplayTimer !== null) window.clearTimeout(autoplayTimer);
       window.removeEventListener("pointerdown", onGesture);
       window.removeEventListener("keydown", onGesture);
       window.removeEventListener("touchstart", onGesture);
