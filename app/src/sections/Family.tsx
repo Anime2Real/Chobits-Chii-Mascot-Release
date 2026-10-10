@@ -10,7 +10,7 @@ export default function Family() {
       <div className="mx-auto max-w-6xl px-4 py-20 md:px-6 md:py-28">
         <Reveal className="text-center">
           <p className="font-display text-sm tracking-[0.3em] text-[var(--ink-soft)]">
-            THE WHOLE GANG
+            {t.family.kicker}
           </p>
           <h2 className="font-display mt-3 text-4xl tracking-wide md:text-5xl">
             <BounceText text={t.family.title} />

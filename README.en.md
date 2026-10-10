@@ -22,7 +22,7 @@ Download the latest version from the release page (recommended):
 
 **https://anime2real.github.io/Chobits-Chii-Mascot-Release/**
 
-The page automatically detects your platform and recommends the matching installer. You can also download directly from the [Releases](https://github.com/Anime2Real/Chobits-Chii-Mascot-Release/releases) page:
+The page lists the latest installers for each platform. You can also download directly from the [Releases](https://github.com/Anime2Real/Chobits-Chii-Mascot-Release/releases) page:
 
 | Platform | File |
 |---|---|

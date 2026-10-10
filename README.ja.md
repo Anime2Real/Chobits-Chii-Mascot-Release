@@ -22,7 +22,7 @@
 
 **https://anime2real.github.io/Chobits-Chii-Mascot-Release/**
 
-ページが自動的にプラットフォームを判別して対応するインストーラーを推奨します。[Releases](https://github.com/Anime2Real/Chobits-Chii-Mascot-Release/releases) ページから直接ダウンロードすることもできます：
+ページではプラットフォーム別に最新のインストーラーを一覧表示します。[Releases](https://github.com/Anime2Real/Chobits-Chii-Mascot-Release/releases) ページから直接ダウンロードすることもできます：
 
 | プラットフォーム | ファイル |
 |---|---|

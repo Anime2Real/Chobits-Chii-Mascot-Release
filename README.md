@@ -22,7 +22,7 @@
 
 **https://anime2real.github.io/Chobits-Chii-Mascot-Release/**
 
-页面会自动识别你的平台并推荐对应的安装包，也可以直接访问 [Releases](https://github.com/Anime2Real/Chobits-Chii-Mascot-Release/releases) 页面下载：
+页面会按平台列出最新的安装包，也可以直接访问 [Releases](https://github.com/Anime2Real/Chobits-Chii-Mascot-Release/releases) 页面下载：
 
 | 平台 | 文件 |
 |---|---|
