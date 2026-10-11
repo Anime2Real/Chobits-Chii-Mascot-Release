@@ -40,7 +40,10 @@ export default function Family() {
         </Reveal>
 
         <Reveal delay={220}>
-          <div className="mt-10 flex flex-wrap items-center justify-center gap-2.5">
+          <p className="font-display mt-10 text-center text-sm tracking-[0.3em] text-[var(--ink-soft)]">
+            {t.family.castTitle}
+          </p>
+          <div className="mt-4 flex flex-wrap items-center justify-center gap-2.5">
             {t.family.cast.map((c, i) => (
               <span
                 key={c.name}

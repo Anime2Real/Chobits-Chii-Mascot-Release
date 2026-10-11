@@ -156,7 +156,9 @@ export default function Download() {
     <section id="download" className="noise bg-[var(--peach)]">
       <div className="mx-auto max-w-6xl px-4 py-20 md:px-6 md:py-28">
         <Reveal className="text-center">
-          <p className="font-display text-sm tracking-[0.3em] text-[var(--ink-soft)]">DOWNLOAD</p>
+          <p className="font-display text-sm tracking-[0.3em] text-[var(--ink-soft)]">
+            {t.download.kicker}
+          </p>
           <h2 className="font-display mt-3 text-4xl tracking-wide md:text-6xl">
             <BounceText text={t.download.title} />
           </h2>
@@ -206,7 +208,7 @@ export default function Download() {
           })}
         </div>
 
-        {state !== "ready" && (
+        {state === "empty" && (
           <Reveal delay={200}>
             <div className="card-line mx-auto mt-10 flex max-w-2xl flex-col items-center gap-4 rounded-[24px] bg-[var(--cream)] px-8 py-8 text-center md:flex-row md:text-left">
               <FlowerMark className="heartbeat h-10 w-10 shrink-0 text-[var(--pink-deep)]" />

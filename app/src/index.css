@@ -17,6 +17,7 @@
   --ink-deep: #3e322c;
   --ink-soft: rgba(84, 69, 63, 0.62);
   --line: #54453f;
+  --radius: 0.5rem;
   --ease-bounce: cubic-bezier(0.215, 0.61, 0.355, 1);
 }
 
@@ -243,15 +244,17 @@ body {
   overflow: hidden;
   background: #fff;
 }
-.tape {
-  position: absolute;
-  width: 92px;
-  height: 26px;
-  background: rgba(255, 211, 224, 0.85);
-  border-left: 1.5px dashed rgba(84, 69, 63, 0.35);
-  border-right: 1.5px dashed rgba(84, 69, 63, 0.35);
-  transform: rotate(-6deg);
-  box-shadow: 0 1px 2px rgba(84, 69, 63, 0.12);
+@layer components {
+  .tape {
+    position: absolute;
+    width: 92px;
+    height: 26px;
+    background: rgba(255, 211, 224, 0.85);
+    border-left: 1.5px dashed rgba(84, 69, 63, 0.35);
+    border-right: 1.5px dashed rgba(84, 69, 63, 0.35);
+    transform: rotate(-6deg);
+    box-shadow: 0 1px 2px rgba(84, 69, 63, 0.12);
+  }
 }
 .tape--lace {
   background: rgba(255, 255, 255, 0.92);

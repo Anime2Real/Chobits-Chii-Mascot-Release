@@ -15,12 +15,10 @@ export default function ScallopEdge({ color, flip = false, className = "" }: Sca
   const width = r * 2 * count;
   const height = 36;
 
-  let d = `M0 ${flip ? 0 : height} L0 ${flip ? 0 : height / 2}`;
+  let d = `M0 ${flip ? 0 : height} L0 ${height / 2}`;
   for (let i = 0; i < count; i++) {
     const x = i * r * 2;
-    d += flip
-      ? ` A ${r} ${r} 0 0 1 ${x + r * 2} 0`
-      : ` A ${r} ${r} 0 0 1 ${x + r * 2} ${height / 2}`;
+    d += ` A ${r} ${r} 0 0 ${flip ? 0 : 1} ${x + r * 2} ${height / 2}`;
   }
   d += ` L${width} ${flip ? 0 : height} Z`;
 
