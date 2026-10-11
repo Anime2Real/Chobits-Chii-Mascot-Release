@@ -16,9 +16,13 @@ or use the Software.
 
    "Source Code" means the human-readable source code of the Software
    (including the release page source code under `app/` in this repository,
-   except for the Brand Assets defined below). The Source Code is currently
-   not publicly available and all rights therein are reserved; it may be
-   open-sourced following a complete security assessment.
+   except for the Brand Assets defined below). All rights in the Source Code
+   are reserved. The Software's own source code is currently not publicly
+   available and may be open-sourced following a complete security
+   assessment. The release page source code under `app/` is published in
+   this repository for transparency and to build the release page only; its
+   publication grants you no rights beyond those expressly stated in this
+   License.
 
    "Brand Assets" means the Chobits product name, logos, character artwork,
    and other trademarks or trade dress of the Licensor, in either binary
@@ -57,15 +61,17 @@ or use the Software.
 
 4. SOURCE CODE
 
-   The Source Code is currently not publicly available, and all rights
-   therein are reserved by the Licensor. The Licensor may choose to
-   open-source the Source Code, in whole or in part, following a complete
-   security assessment. Unless and until the Source Code is expressly
-   released under a separate open-source license, this License grants you
-   no rights to the Source Code, and nothing in this License shall be
-   construed as a promise or commitment to open-source the Source Code.
-   This License governs the binary builds distributed through this
-   repository's Releases, the auto-update metadata, and the Brand Assets.
+   All rights in the Source Code are reserved by the Licensor. The
+   Software's own source code is currently not publicly available. The Licensor
+   may choose to open-source the Source Code, in whole or in part, following a
+   complete security assessment. The release page source code under `app/` is
+   published in this repository, but is not offered under any open-source
+   license. Unless and until the Source Code is expressly released under a
+   separate open-source license, this License grants you no rights to the
+   Source Code, and nothing in this License shall be construed as a promise or
+   commitment to open-source the Source Code. This License governs the binary
+   builds distributed through this repository's Releases, the auto-update
+   metadata, and the Brand Assets.
 
 5. AUTOMATIC UPDATES
 
@@ -78,8 +84,8 @@ or use the Software.
    The Software, the Source Code, and the Brand Assets, including all
    intellectual property rights therein, are and remain the exclusive
    property of the Licensor. This License does not grant you any ownership
-   interest in the Software. The Source Code is not publicly available, and
-   all rights therein are reserved, as stated in Section 4.
+   interest in the Software. All rights in the Source Code are reserved, as
+   stated in Section 4.
 
 7. NO WARRANTY
 
