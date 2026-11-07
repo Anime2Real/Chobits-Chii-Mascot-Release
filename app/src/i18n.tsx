@@ -133,7 +133,7 @@ const zh = {
   },
   footer: {
     github: "GitHub 仓库",
-    about: "关于我们",
+    about: "爱好者社群",
     copyright:
       "非官方粉丝作品 · Chobits © CLAMP・講談社／ちょびっツ製作委員会 · 客户端源码暂不开源",
   },
@@ -265,7 +265,7 @@ const ja: Dict = {
   },
   footer: {
     github: "GitHub リポジトリ",
-    about: "私たちについて",
+    about: "ファンコミュニティ",
     copyright:
       "非公式ファン作品 · Chobits © CLAMP・講談社／ちょびっツ製作委員会 · クライアントのソースコードは現時点では非公開",
   },
@@ -395,7 +395,7 @@ const en: Dict = {
   },
   footer: {
     github: "GitHub Repo",
-    about: "About Us",
+    about: "Fan Community",
     copyright:
       "Unofficial fan work · Chobits © CLAMP・Kodansha / Chobits Production Committee · Client source code not open-sourced at this time",
   },
