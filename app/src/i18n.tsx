@@ -130,7 +130,7 @@ const zh = {
   },
   footer: {
     github: "GitHub 仓库",
-    about: "Anime2Real 开发团队",
+    about: "Anime2Real 团队",
     qq: "QQ 群 809591826",
     discord: "Discord",
     qqQrAlt: "Anime2Real QQ 群二维码",
@@ -263,7 +263,7 @@ const ja: Dict = {
   },
   footer: {
     github: "GitHub リポジトリ",
-    about: "Anime2Real 開発チーム",
+    about: "Anime2Real チーム",
     qq: "QQ グループ 809591826",
     discord: "Discord",
     qqQrAlt: "Anime2Real QQ グループのQRコード",
@@ -394,7 +394,7 @@ const en: Dict = {
   },
   footer: {
     github: "GitHub Repo",
-    about: "Anime2Real Dev Team",
+    about: "Anime2Real Team",
     qq: "QQ Group 809591826",
     discord: "Discord",
     qqQrAlt: "Anime2Real QQ group QR code",
