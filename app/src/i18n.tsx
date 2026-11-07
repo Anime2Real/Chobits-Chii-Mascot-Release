@@ -134,9 +134,6 @@ const zh = {
   footer: {
     github: "GitHub 仓库",
     about: "关于我们",
-    communityLead: "想聊聊小叽，或提提建议？",
-    qq: "QQ 群 809591826",
-    discord: "Discord",
     copyright:
       "非官方粉丝作品 · Chobits © CLAMP・講談社／ちょびっツ製作委員会 · 客户端源码暂不开源",
   },
@@ -269,9 +266,6 @@ const ja: Dict = {
   footer: {
     github: "GitHub リポジトリ",
     about: "私たちについて",
-    communityLead: "ちぃの話や、ご意見はこちらから。",
-    qq: "QQ グループ 809591826",
-    discord: "Discord",
     copyright:
       "非公式ファン作品 · Chobits © CLAMP・講談社／ちょびっツ製作委員会 · クライアントのソースコードは現時点では非公開",
   },
@@ -402,9 +396,6 @@ const en: Dict = {
   footer: {
     github: "GitHub Repo",
     about: "About Us",
-    communityLead: "Want to chat about Chii, or share some feedback?",
-    qq: "QQ Group 809591826",
-    discord: "Discord",
     copyright:
       "Unofficial fan work · Chobits © CLAMP・Kodansha / Chobits Production Committee · Client source code not open-sourced at this time",
   },

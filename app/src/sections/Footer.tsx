@@ -1,6 +1,6 @@
 import BounceText, { FlowerMark } from "../components/BounceText";
 import { useLang } from "../i18n";
-import { DISCORD_URL, ORG_URL, QQ_URL, REPO_URL } from "../links";
+import { ORG_URL, REPO_URL } from "../links";
 
 export default function Footer() {
   const { t } = useLang();
@@ -29,28 +29,6 @@ export default function Footer() {
             >
               {t.footer.about} ↗
             </a>
-          </div>
-
-          <div className="flex flex-col items-center gap-3">
-            <p className="text-sm text-[var(--cream-soft)]">{t.footer.communityLead}</p>
-            <div className="flex flex-wrap items-center justify-center gap-x-5 gap-y-2 text-sm font-bold">
-              <a
-                href={QQ_URL}
-                target="_blank"
-                rel="noreferrer"
-                className="text-[var(--cream-soft)] underline-offset-4 transition-colors hover:text-[var(--pink)] hover:underline hover:decoration-[var(--pink)]"
-              >
-                {t.footer.qq} ↗
-              </a>
-              <a
-                href={DISCORD_URL}
-                target="_blank"
-                rel="noreferrer"
-                className="text-[var(--cream-soft)] underline-offset-4 transition-colors hover:text-[var(--pink)] hover:underline hover:decoration-[var(--pink)]"
-              >
-                {t.footer.discord} ↗
-              </a>
-            </div>
           </div>
 
           <div className="flex items-center gap-3 text-xs text-[var(--cream)]/60">
