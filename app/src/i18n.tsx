@@ -96,9 +96,6 @@ const zh = {
       { label: "Windows", sub: "10 / 11" },
       { label: "Linux", sub: "Ubuntu" },
     ],
-    communityNote: "安装或使用中遇到问题？欢迎来社区找我们：",
-    communityQq: "QQ 群",
-    communityDiscord: "Discord",
   },
   music: {
     play: "播放音乐",
@@ -133,9 +130,13 @@ const zh = {
   },
   footer: {
     github: "GitHub 仓库",
-    about: "爱好者社群",
+    about: "Anime2Real 开发团队",
+    qq: "QQ 群 809591826",
+    discord: "Discord",
+    qqQrAlt: "Anime2Real QQ 群二维码",
+    discordQrAlt: "Anime2Real Discord 二维码",
     copyright:
-      "非官方粉丝作品 · Chobits © CLAMP・講談社／ちょびっツ製作委員会 · 客户端源码暂不开源",
+      "非官方粉丝作品 · Chobits © CLAMP・講談社／ちょびっツ製作委員会 · 欢迎关注我们",
   },
 };
 
@@ -228,9 +229,6 @@ const ja: Dict = {
       { label: "Windows", sub: "10 / 11" },
       { label: "Linux", sub: "Ubuntu" },
     ],
-    communityNote: "インストールや使用でお困りですか？コミュニティでお気軽にどうぞ：",
-    communityQq: "QQ グループ",
-    communityDiscord: "Discord",
   },
   music: {
     play: "音楽を再生",
@@ -265,9 +263,13 @@ const ja: Dict = {
   },
   footer: {
     github: "GitHub リポジトリ",
-    about: "ファンコミュニティ",
+    about: "Anime2Real 開発チーム",
+    qq: "QQ グループ 809591826",
+    discord: "Discord",
+    qqQrAlt: "Anime2Real QQ グループのQRコード",
+    discordQrAlt: "Anime2Real Discord のQRコード",
     copyright:
-      "非公式ファン作品 · Chobits © CLAMP・講談社／ちょびっツ製作委員会 · クライアントのソースコードは現時点では非公開",
+      "非公式ファン作品 · Chobits © CLAMP・講談社／ちょびっツ製作委員会 · ぜひフォローしてください",
   },
 };
 
@@ -358,9 +360,6 @@ const en: Dict = {
       { label: "Windows", sub: "10 / 11" },
       { label: "Linux", sub: "Ubuntu" },
     ],
-    communityNote: "Trouble installing or using Chii? Come say hi in our community:",
-    communityQq: "QQ group",
-    communityDiscord: "Discord",
   },
   music: {
     play: "Play music",
@@ -395,9 +394,13 @@ const en: Dict = {
   },
   footer: {
     github: "GitHub Repo",
-    about: "Fan Community",
+    about: "Anime2Real Dev Team",
+    qq: "QQ Group 809591826",
+    discord: "Discord",
+    qqQrAlt: "Anime2Real QQ group QR code",
+    discordQrAlt: "Anime2Real Discord QR code",
     copyright:
-      "Unofficial fan work · Chobits © CLAMP・Kodansha / Chobits Production Committee · Client source code not open-sourced at this time",
+      "Unofficial fan work · Chobits © CLAMP・Kodansha / Chobits Production Committee · Follow us for updates",
   },
 };
 

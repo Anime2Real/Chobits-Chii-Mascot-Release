@@ -2,7 +2,7 @@ import { useEffect, useState, type ReactNode } from "react";
 import Reveal from "../components/Reveal";
 import BounceText, { FlowerMark } from "../components/BounceText";
 import { useLang } from "../i18n";
-import { DISCORD_URL, QQ_URL, RELEASES_URL, REPO_URL } from "../links";
+import { RELEASES_URL, REPO_URL } from "../links";
 
 const OWNER_REPO = REPO_URL.replace("https://github.com/", "");
 const API_URL = `https://api.github.com/repos/${OWNER_REPO}/releases/latest`;
@@ -207,31 +207,6 @@ export default function Download() {
             );
           })}
         </div>
-
-        <Reveal delay={120}>
-          <p className="mt-10 text-center text-sm text-[var(--ink-soft)]">
-            {t.download.communityNote}{" "}
-            <span className="whitespace-nowrap">
-              <a
-                href={QQ_URL}
-                target="_blank"
-                rel="noreferrer"
-                className="font-bold underline decoration-[var(--ink-soft)] underline-offset-4 transition-colors hover:text-[var(--pink-deep)] hover:decoration-[var(--pink-deep)]"
-              >
-                {t.download.communityQq}
-              </a>
-              <span aria-hidden> · </span>
-              <a
-                href={DISCORD_URL}
-                target="_blank"
-                rel="noreferrer"
-                className="font-bold underline decoration-[var(--ink-soft)] underline-offset-4 transition-colors hover:text-[var(--pink-deep)] hover:decoration-[var(--pink-deep)]"
-              >
-                {t.download.communityDiscord}
-              </a>
-            </span>
-          </p>
-        </Reveal>
 
         {state === "empty" && (
           <Reveal delay={200}>
