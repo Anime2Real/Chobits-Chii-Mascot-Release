@@ -96,6 +96,9 @@ const zh = {
       { label: "Windows", sub: "10 / 11" },
       { label: "Linux", sub: "Ubuntu" },
     ],
+    communityNote: "安装或使用中遇到问题？欢迎来社区找我们：",
+    communityQq: "QQ 群",
+    communityDiscord: "Discord",
   },
   music: {
     play: "播放音乐",
@@ -130,7 +133,10 @@ const zh = {
   },
   footer: {
     github: "GitHub 仓库",
-    releases: "Releases 下载页",
+    about: "关于我们",
+    communityLead: "想聊聊小叽，或提提建议？",
+    qq: "QQ 群 809591826",
+    discord: "Discord",
     copyright:
       "非官方粉丝作品 · Chobits © CLAMP・講談社／ちょびっツ製作委員会 · 客户端源码暂不开源",
   },
@@ -225,6 +231,9 @@ const ja: Dict = {
       { label: "Windows", sub: "10 / 11" },
       { label: "Linux", sub: "Ubuntu" },
     ],
+    communityNote: "インストールや使用でお困りですか？コミュニティでお気軽にどうぞ：",
+    communityQq: "QQ グループ",
+    communityDiscord: "Discord",
   },
   music: {
     play: "音楽を再生",
@@ -259,7 +268,10 @@ const ja: Dict = {
   },
   footer: {
     github: "GitHub リポジトリ",
-    releases: "Releases ページ",
+    about: "私たちについて",
+    communityLead: "ちぃの話や、ご意見はこちらから。",
+    qq: "QQ グループ 809591826",
+    discord: "Discord",
     copyright:
       "非公式ファン作品 · Chobits © CLAMP・講談社／ちょびっツ製作委員会 · クライアントのソースコードは現時点では非公開",
   },
@@ -352,6 +364,9 @@ const en: Dict = {
       { label: "Windows", sub: "10 / 11" },
       { label: "Linux", sub: "Ubuntu" },
     ],
+    communityNote: "Trouble installing or using Chii? Come say hi in our community:",
+    communityQq: "QQ group",
+    communityDiscord: "Discord",
   },
   music: {
     play: "Play music",
@@ -386,7 +401,10 @@ const en: Dict = {
   },
   footer: {
     github: "GitHub Repo",
-    releases: "All Releases",
+    about: "About Us",
+    communityLead: "Want to chat about Chii, or share some feedback?",
+    qq: "QQ Group 809591826",
+    discord: "Discord",
     copyright:
       "Unofficial fan work · Chobits © CLAMP・Kodansha / Chobits Production Committee · Client source code not open-sourced at this time",
   },
